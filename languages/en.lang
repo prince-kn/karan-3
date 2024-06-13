@@ -7,19 +7,19 @@
 
 mirai.errorFormat=Malformed module!
 mirai.nameExist=Module's name is similar to another module!
-mirai.notFoundLanguage=Module %1 don't support your language
+mirai.notFoundLanguage=Module %1 , timro laguage support gardaina  baby🥺
 mirai.notFoundPackage=Can't find package %1 support for module %2, installing...
 mirai.cantInstallPackage=Can't install package %1 for module %2, error: %3
-mirai.loadedPackage=Installed whole package successfully for module %1
+mirai.loadedPackage=Timro sabai package install vayo %1
 mirai.loadedConfig=Installed config successfully for module %1
 mirai.cantLoadConfig=Can't install config of module %1, error: %2
 mirai.cantOnload=Can't launch setup of module %1, error: %1
 mirai.successLoadModule=Successfully installed module %1
 mirai.failLoadModule=Can't install module %1, error: %2
 mirai.finishLoadModule=Installed %1 module commands and %2 module events successfully 
-mirai.foundPathAppstate=Found file appstate
-mirai.notFoundPathAppstate=Can't find file appstate
-mirai.checkListGban=Cheking global ban list...
+mirai.foundPathAppstate=Appstate vateyo aba login gardai xa💝...
+mirai.notFoundPathAppstate=Bro timro  appstate wrong xa, please right fbstate  copy paste gara💝!
+mirai.checkListGban=Checking global ban list...
 mirai.banDevice=Your device have been banned from miraiproject, please contact to facebook https://fb.me/catalizcs to know more information or asking for unban key, if you already have unban key, please fill it below.
 mirai.keyNotSameFormat=Wrong format, code must contain 6 number.
 mirai.codeInputExpired=Your code is wrong or out of date.
@@ -58,14 +58,15 @@ users.needObject=Have to be an Object
 
 # includes/handle/handleCommand.js
 
-handleCommand.userBanned=You are unable to use bot!\n%1\n%2
-handleCommand.threadBanned=Your thread are unable to use bot!\n%1\n%2
-handleCommand.commandNotExist=⚠️ | "%1" 𝑻𝒉𝒆 𝒄𝒐𝒎𝒎𝒂𝒏𝒅 𝒚𝒐𝒖 𝒂𝒓𝒆 𝒕𝒚𝒑𝒊𝒏𝒈 𝒅𝒐𝒆𝒔 𝒏𝒐𝒕 𝒆𝒙𝒊𝒔𝒕..!!
+handleCommand.userBanned=⛔️~TMI BAN XAU🤭!~🚫\n%1\n%2\nContact B0T Owner RKO BRO🖤 For Unban ⚠️Id:https://www.facebook.com/profile.php?id=100084573213860💝
+handleCommand.threadBanned=⛔️Your Thread/Box/Group Has Been Banned!⛔️\n%1\n%2 Please Contact Owner RKO BRO For Unban⚠️
+Id:https://www.facebook.com/profile.php?id=100084573213860💝
+handleCommand.commandNotExist=㋡𝐒𝐨𝐫𝐫𝐲 wrong command☠, 😾 vana khojeko yo  %1 navaya /help lekha💝
 handleCommand.commandThreadBanned=Your thread is unable to use command "%1"
 handleCommand.commandUserBanned=You are unable to use command "%1"
 handleCommand.threadNotAllowNSFW=Your thread is not allowed to use NSFW commands
 handleCommand.cantGetInfoThread=Can't get your thread's info, error: %1
-handleCommand.permssionNotEnough=⚠️ | 𝐘𝐨𝐮 𝐡𝐚𝐯𝐞 𝐍𝐨𝐭 𝐏𝐞𝐫𝐦𝐢𝐬𝐬𝐢𝐨𝐧 𝐓𝐨 𝐔𝐬𝐞𝐝 😒 "%1" 𝐂𝐨𝐦𝐦𝐚𝐧𝐝 (𝚘𝚗𝚕𝚢 𝙰𝚍𝚖𝚒𝚗)
+handleCommand.permssionNotEnough=📑This Command Only Allow For My Boss RKO BRO 👽☠ 🙂"%1"
 handleCommand.cantSetMessageReaction=Having some unexpected error at setMessageReaction, error: %1
 handleCommand.executeCommand=[ %1 ] Command used: %2 by user: %3 at thread: %4 | Args included: %5 | Processing time: %6ms
 handleCommand.commandError=Having some unexpected error when using command %1, error: %2
@@ -82,12 +83,12 @@ handleCreateDatabase.newUser=new user %1
 # includes/handle/handleEvent.js
 
 handleEvent.executeEvent=[ %1 ] Event was executed: %2 at thread: %3 | Processing time: %4ms
-handleEvent.eventError=Having some error when executing event %1, error: %12
+handleEvent.eventError=🙄 %1, error: %12
 
 # includes/handle/handleReaction.js
 
 handleReaction.missingValue=Missing value to respond your problem
-handleReaction.executeError=Having some error when responding your problem, error: %1
+handleReaction.executeError=Having some error when responding to your problem, error: %1
 
 # includes/handle/handleReply.js
 
@@ -100,4 +101,4 @@ handleSchedule.exectuteError=Having some error when schedule at module %1, error
 
 # utils/index.js
 
-utils.throwError=[!] The command you are using is not syntax correct, please use %1help %2 for more usage details
+utils.throwError=ℹ️ [!] Yo Command Kaam garya xina Koi aru Try gara, %1help %2 Use For More usage 😉 ℹ️
