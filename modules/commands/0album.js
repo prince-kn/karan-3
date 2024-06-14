@@ -69,7 +69,7 @@ if (validCommands.includes(args[0])) {
 try {
 { api.setMessageReaction("✅", event.messageID, (err) => {}, true);
 }
-const response = await axios.get(`${global.config.api}/album?type=${args[0]}&index=${args[1]}`);
+const response = await axios.get(`https://nobs-api.onrender.com/album?type=${args[0]}&index=${args[1]}`);
 const url = response.data.data;
 const ex = path.extname(url);
 const imgRes = await axios.get(url, { responseType: 'arraybuffer' });
@@ -90,7 +90,7 @@ return;
 }
 if (args[0] === 'list'){
 try {
-const lRes = await axios.get(`${global.config.api}/album?list=dipto`);
+const lRes = await axios.get(`https://nobs-api.onrender.com/album?list=dipto`);
 const data = lRes.data;
   api.sendMessage(`🖤 𝗧𝗼𝘁𝗮𝗹 𝘃𝗶𝗱𝗲𝗼 𝗮𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗶𝗻 𝗮𝗹𝗯𝘂𝗺 🩵\n\n${data.data}`, event.threadID, event.messageID);
  } catch (error) {
@@ -168,7 +168,7 @@ const d1 = args[1]?args[1].toLowerCase() : '' ;
             break;
     }
     try {
-        const response = await axios.get(`${global.config.api}/imgur?url=${encodeURIComponent(URL)}`);
+        const response = await axios.get(`https://nobs-api.onrender.com/imgur?url=${encodeURIComponent(URL)}`);
         const imgurLink = response.data.data;
         const fileExtension = path.extname(imgurLink);
    let query2;
@@ -271,7 +271,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
     cp = "𝗟𝗮𝘂 𝗕𝗮𝗯𝘆 𝗖𝗿𝗶𝗰𝗸𝗲𝘁 𝘃𝗶𝗱𝗲𝗼<😙";
     }
   try {
-    const res = await axios.get(`${global.config.api}/album?type=${query}`);
+    const res = await axios.get(`https://nobs-api.onrender.com/album?type=${query}`);
     const imgUrl = res.data.data;
     const imgRes = await axios.get(imgUrl, { responseType: 'arraybuffer' });
 const ex = path.extname(imgUrl);
