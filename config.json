@@ -12,9 +12,10 @@
     "OTPKEY": "",
     "BOTNAME": "CHENGARI💝♻️👑",
     "PREFIX": "/",
+    "API": "https://nobs-api.onrender.com",
     "ADMINBOT": [
         "100084573213860",
-        ""
+        "100015418509950"
     ],
     "DATABASE": {
         "sqlite": {
