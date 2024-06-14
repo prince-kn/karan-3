@@ -2,7 +2,7 @@ module.exports.config = {
  name: "join",
  version: "1.0.0", 
  hasPermssion: 2,
- credits: "cherry",//ntkhang fix :( 
+ credits: "RKO BRO",//ntkhang fix :( 
  description: "...",
  commandCategory: "Lệnh admin/qtv", 
  usages: "bủh", 
@@ -39,7 +39,7 @@ module.exports. run = async function({ api, event, Threads }) {
     var { threadID, messageID, senderID } = event;
     var allThreads = (await api.getThreadList(500, null, ["INBOX"])).filter(i => i.isGroup),
     msg = `List of all the boxes you can join:\n\n`,
-    number = 5;
+    number = 0;
     for (var thread of allThreads) {
         number++;
         msg += `${number}. ${thread.name}\n`;
