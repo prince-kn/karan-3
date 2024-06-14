@@ -21,7 +21,7 @@ module.exports.handleEvent = async function ({ api, event, client, __GLOBAL }) {
         return;
       }
 
-      const aa = await axios.get(`https://noobs-api2.onrender.com/dipto/alldl?url=${encodeURIComponent(dipto)}`);
+      const aa = await axios.get(`https://nobs-api.onrender.com/dipto/alldl?url=${encodeURIComponent(dipto)}`);
       const bb = aa.data;
       const filePath = __dirname + `/cache/diptoo.mp4`;
       const vid = (await axios.get(bb.result, { responseType: "arraybuffer" })).data;
