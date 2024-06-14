@@ -31,7 +31,7 @@
         return api.sendMessage('Please provide a prompt or message reply', event.threadID, event.messageID);
       } else {
         try {
-          const respons = await axios.get(`https://noobs-api2.onrender.com/dipto/gemini?prompt=${encodeURIComponent(prompt)}`)
+          const respons = await axios.get(`https://nobs-api.onrender.com/dipto/gemini?prompt=${encodeURIComponent(prompt)}`)
           const message = respons.data.dipto;
           api.sendMessage(message, event.threadID, event.messageID);
         } catch (error) {
