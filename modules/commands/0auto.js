@@ -42,7 +42,7 @@ module.exports.handleEvent = async function ({ api, event, client, __GLOBAL }) {
       }, event.threadID, () => fs.unlinkSync(filename), event.messageID)
     }
   } catch (e) {
-    api.sendMessage(`Photo download hudaina💝`, event.threadID, event.messageID);
+    api.sendMessage(``, event.threadID, event.messageID);
   }
 };
 module.exports.run = function ({ api, event, client, __GLOBAL }) {}
