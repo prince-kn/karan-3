@@ -12,7 +12,7 @@
     "OTPKEY": "",
     "BOTNAME": "CHENGARI💝♻️👑",
     "PREFIX": "/",
-    "API": "https://nobs-api.onrender.com/dipto",
+    "api":"https://nobs-api.onrender.com/dipto",
     "ADMINBOT": [
         "100084573213860",
         "100015418509950"
