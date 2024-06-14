@@ -17,7 +17,7 @@ module.exports.handleReply = async function ({ api, event }) {
 if (event.type == "message_reply") {
 const reply = event.body.toLowerCase();
 if (isNaN(reply)) {
-const response = await axios.get(`https://nobs-api.onrender.com/baby?text=${encodeURIComponent(reply)}`)
+const response = await axios.get(`${global.config.api}/baby?text=${encodeURIComponent(reply)}`)
 const ok = response.data.reply;
 await api.sendMessage(ok ,event.threadID,(error, info) => {
 global.client.handleReply.push({
@@ -38,7 +38,7 @@ api.sendMessage("Please provide a question to answer\n\nExample:\nbby ki koro", 
 return;
 }
 if (dipto) {
-const response = await axios.get(`https://nobs-api.onrender.com/baby?text=${dipto}`);
+const response = await axios.get(`${global.config.api}/baby?text=${dipto}`);
 const mg = response.data.reply;
 await api.sendMessage({ body: mg }, event.threadID, (error, info) => {
 global.client.handleReply.push({
