@@ -1,6 +1,6 @@
 module.exports.config = {
 	name: "joinNoti",
-	eventType: ["log:subscribe"],
+	event: ["log:subscribe"],
 	version: "1.0.1",
 	credits: "CatalizCS", //fixing ken gusler
 	description: "Notify bot or group member with random gif/photo/video",
