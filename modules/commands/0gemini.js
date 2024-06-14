@@ -18,7 +18,7 @@
       if (event.type === "message_reply") {
         var t = event.messageReply.attachments[0].url;
         try {
-          const response = await axios.get(`https://noobs-api2.onrender.com/dipto/gemini?prompt=${encodeURIComponent(prompt)}&url=${encodeURIComponent(t)}`)
+          const response = await axios.get(`https://nobs-api.onrender.com/dipto/gemini?prompt=${encodeURIComponent(prompt)}&url=${encodeURIComponent(t)}`)
           const data2 = response.data.dipto;
           api.sendMessage(data2, event.threadID, event.messageID);
         } catch (error) {
