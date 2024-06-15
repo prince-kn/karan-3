@@ -1,146 +1,67 @@
+const axios = require('axios');
+const fs = require('fs-extra');
+const path = require('path');
+const tinyurl = require('tinyurl');
+const baseApiUrl = async () => {
+  const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
+  return base.data.api;
+}; 
+
 module.exports = {
-config:{
-  name: "download",
-  version: "1.0.0",
-  hasPermission: 0,
-  prefix: true,
-  credits: "Nayan",
-  description: "Social Media Video Downloader",
-  commandCategory: "user",
-  usages: [
-    "/download [Facebook video link]",
-    "/download [TikTok video link]",
-    "/download [YouTube video link]",
-    "/download [Instagram video link]",
-  ],
-  cooldowns: 5,
-  dependencies: {
-        'nayan-media-downloader': '',
-  }
+  config: {
+    name: "alldl", 
+    version: "1.0.1",
+    credits: "RKO BRO",
+    cooldowns: 6,
+    hasPermission: 0,
+    description: "𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝘃𝗶𝗱𝗲𝗼 𝗳𝗿𝗼𝗺 𝘁𝗶𝗸𝘁𝗼𝗸, 𝗳𝗮𝗰𝗲𝗯𝗼𝗼𝗸, 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺, 𝗬𝗼𝘂𝗧𝘂𝗯𝗲, 𝗮𝗻𝗱 𝗺𝗼𝗿𝗲",
+    commandCategory: "𝗠𝗘𝗗𝗜𝗔",
+    usages: "[video_link]",
+    usePrefix: true,
+    dependencies: {
+      "axios": "",
+      "fs-extra": "",
+      "path": "",
+      "tinyurl": ""
+    }
 },
 
-  languages: {
-    "vi": {},
-        "en": {
-            "urlinvalid": 'Unsupported video platform. Please provide a valid Facebook, TikTok, Twitter, Instagram, or YouTube video link.',
-          "waitfb": 'Downloading Facebook video. Please wait...',
-          "downfb": "Download Facebook Video Successfully",
-          "waittik": 'Downloading TikTok video. Please wait....!',
-          "waitinsta": 'Downloading Instagram video. Please wait...',
-          "downinsta": 'Instagram video downloadsuccess',
-          "waityt": 'Downloading YouTube video. Please wait...',
-          "waittw": 'Downloading Twitter video. Please wait...',
-          "downtw": 'Twitter video download success',
-          "error": '❌Error'
-        }
-    },
+  run: async function ({ api, args, event }) {
+    const dipto = event.messageReply?.attachments[0]?.url || args[0];
 
-run: async function ({ nayan, events, args, lang }) {
-  const axios = require("axios");
-  const fs = require("fs-extra");
-  const content = args.join(" ");
-  const { ytdown, ndown, tikdown, twitterdown } = require("nayan-media-downloader")
-  let msg = "";
+    if (!dipto){
+       api.setMessageReaction("❌", event.messageID, (err) => {}, true);
+    }
+  try {
+       api.setMessageReaction("⏳", event.messageID, (err) => {}, true);
 
-  const sendWaitingMessage = async (message) => {
-    const vid = (
-      await axios.get(
-        'https://i.imgur.com/rvreDPU.gif',
-        { responseType: 'stream' }
-      )
-    ).data;
-    return await nayan.sendMessage({ ...message }, events.threadID);
-  };
+    const { data } = await axios.get(`${await baseApiUrl()}/alldl?url=${encodeURIComponent(dipto)}`);
+    const ext = path.extname(data.result);
+    const filePath = __dirname + `/cache/vid${ext}`;
+    const vid = (await axios.get(data.result, { responseType: "arraybuffer" })).data;
 
-  if (content.includes("https://fb.watch/") || content.includes("https://www.facebook.com")) {
-    const fbnayanResponse = await ndown(content);
-    console.log(fbnayanResponse)
-    const fbVideoUrl = fbnayanResponse.data[0].url;
-    const waitingMessage = await sendWaitingMessage({ body: lang("waitfb") });
+    fs.writeFileSync(filePath, Buffer.from(vid, 'utf-8'));
+    const url = await tinyurl.shorten(data.result);
+     api.setMessageReaction("✅", event.messageID, (err) => {}, true);
 
-    const fbVideoData = (await axios.get(fbVideoUrl, {
-      responseType: "arraybuffer",
-    })).data;
-    fs.writeFileSync(__dirname + "/cache/fbVideo.mp4", Buffer.from(fbVideoData, "utf-8"));
+    api.sendMessage({ 
+      body: `${data.cp}\n✅ | Link: ${url}`,
+      attachment: fs.createReadStream(filePath),
+    }, event.threadID, () => fs.unlinkSync(filePath), event.messageID);
+if (dipto.startsWith('https://i.imgur.com')){
+const dipto3 = dipto.substring(dipto.lastIndexOf('.'));
 
-    msg = lang("downfb");
+  const response = await axios.get(dipto, { responseType: 'arraybuffer' });
 
-    nayan.reply(
-      {
-        body: msg,
-        attachment: fs.createReadStream(__dirname + "/cache/fbVideo.mp4"),
-      },
-      events.threadID
-    );
+const filename = __dirname + `/cache/dipto${dipto3}`;
 
-    setTimeout(() => {
-      nayan.unsendMessage(waitingMessage.messageID);
-    }, 9000);
-  } else if (
-    content.includes("https://vt.tiktok.com/") ||
-    content.includes("https://tiktok.com/") ||
-    content.includes("https://www.tiktok.com")
-  ) {
-    const tiktoknayanResponse = await tikdown(content);
-    const tiktokVideoUrl = tiktoknayanResponse.data.video;
-    const tiktokTitle = tiktoknayanResponse.data.title;
-    const tiktokavatar = tiktoknayanResponse.data.author.avatar;
-    console.log(tiktoknayanResponse)
-    const tiktokAvatar = (
-      await axios.get(`${tiktokavatar}`,
-        { responseType: 'stream' }
-      )
-    ).data;
-    const waitingMessage = await sendWaitingMessage({ body: lang("waittik")});
-
-    const tiktokVideoData = (await axios.get(tiktokVideoUrl, {
-      responseType: "arraybuffer",
-    })).data;
-    fs.writeFileSync(__dirname + "/cache/tiktokVideo.mp4", Buffer.from(tiktokVideoData, "utf-8"));
-
-    msg = `《TITLE》${tiktokTitle}`;
-
-    nayan.reply(
-      {
-        body: msg,
-        attachment: fs.createReadStream(__dirname + "/cache/tiktokVideo.mp4"),
-      },
-      events.threadID
-    );
-
-    setTimeout(() => {
-      nayan.unsendMessage(waitingMessage.messageID);
-    }, 9000);
-  } else if (content.includes("https://instagram.com") || content.includes("https://www.instagram.com")) {
-    const instagramnayanResponse = await ndown(content);
-    const instagramVideoUrl = instagramnayanResponse.data[0].url;
-    const waitingMessage = await sendWaitingMessage({ body: lang("waitinsta") });
-
-    const instagramVideoData = (await axios.get(instagramVideoUrl, {
-      responseType: "arraybuffer",
-    })).data;
-    fs.writeFileSync(__dirname + "/cache/instagramVideo.mp4", Buffer.from(instagramVideoData, "utf-8"));
-
-    msg = lang("downinsta");
-
-    nayan.reply(
-      {
-        body: msg,
-        attachment: fs.createReadStream(__dirname + "/cache/instagramVideo.mp4"),
-      },
-      events.threadID
-    );
-
-    setTimeout(() => {
-      nayan.unsendMessage(waitingMessage.messageID);
-    }, 9000);
-  } else if (content.includes("https://youtube.com/shorts/") || content.includes("https://youtu.be/")) {
-    // YouTube video download logic
-    const youtubenayanResponse = await ytdown(content);
-    const youtubeVideoUrl = youtubenayanResponse.data.video;
-    const title = youtubenayanResponse.data.title;
-    const waitingMessage = await sendWaitingMessage({ body: lang("waityt") });
-    const youtubeVideoData = (await axios.get(youtubeVideoUrl, {
-      responseType: "arraybuffer",
-    })).data;
-    fs.writeFileSync(__dirname + "/cache/youtubeVideo.m
+    fs.writeFileSync(filename, Buffer.from(response.data, 'binary'));
+    api.sendMessage({body: `✅ | Downloaded from link`,attachment: fs.createReadStream(filename)},event.threadID,
+  () => fs.unlinkSync(filename),event.messageID)
+}
+} catch (error) {
+    api.setMessageReaction("❎", event.messageID, (err) => {}, true);
+api.sendMessage(error, event.threadID, event.messageID);
+  }
+  },
+}
