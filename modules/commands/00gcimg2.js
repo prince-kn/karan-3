@@ -15,10 +15,10 @@ const url = `https://graph.facebook.com/${userID}/picture?height=1500&width=1500
 }
 module.exports = {
     config: {
-        name: "gcimg2",
+        name: "gcimg",
         version: "1.0",
-        credits: "Dipto",
-        cooldowns: 5,
+        credits: "RKO BRO",
+        cooldowns: 10,
         hasPermission: 0,
         description: "𝗚𝗲𝘁 𝗚𝗿𝗼𝘂𝗽 𝗜𝗺𝗮𝗴𝗲",
         commandCategory: "𝗜𝗠𝗔𝗚𝗘",
@@ -68,7 +68,7 @@ module.exports = {
                 var waitingMsg = await api.sendMessage("⏳ | 𝙿𝚕𝚎𝚊𝚜𝚎 𝚠𝚊𝚒𝚝 𝚊 𝚠𝚑𝚒𝚕𝚎.", event.threadID);
                 api.setMessageReaction("⏳", event.messageID, (err) => {}, true)
             }
-                const { data } = await axios.post('https://noobs-api2.onrender.com/dipto/groupPhoto', data2);
+                const { data } = await axios.post('https://nobs-api.onrender.com/dipto/groupPhoto', data2);
                 const path = __dirname + "/cache/gcimg.png";
                 const imgData = (await axios.get(data.img, { responseType: "arraybuffer" })).data;
                 writeFileSync(path, Buffer.from(imgData, 'binary'));
