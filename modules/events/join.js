@@ -49,7 +49,7 @@ api.getUserInfo(parseInt(userID), (err, data) => {
 				memLength.push(participantIDs.length - i++);
 memLength.sort((a, b) => a - b);
 			
-			(typeof threadData.customJoin == "undefined") ? msg = "╔════•| ✿ |•════╗\n 🌿𝗛𝗲𝗹𝗹𝗼 🌿𝗙𝗿𝗶𝗲𝗻𝗱 🌿\n╚════•| ✿ |•════╝\n ✨🆆🅴🅻🅻 🅲🅾🅼🅴✨\n ❥𝐍𝐄𝐖~\n ~🇲‌🇪‌🇲‌🇧‌🇪‌🇷‌~\n    {uName}\n\༄ 𝗜𝗻 𝗢𝘂𝗿 𝗚𝗿𝗼𝘂𝗽✺࿐\n {threadName}\n 🥰🖤🌸𝗛𝗮𝗽𝗽𝘆🍀𝗘𝗻𝗷𝗼𝘆🍀—🌸🥀\n🥀𝐌𝐞𝐥𝐞𝐫𝐚 𝐁𝐚𝐬𝐧𝐮🥀\n༄✺𝗔𝗻𝗶 𝘁𝗺𝗶 𝘆𝗼 𝗚𝗿𝗼𝘂𝗽 𝗞𝗼  {soThanhVien}th 𝗠𝗲𝗺𝗯𝗲𝗿 𝗛𝗮𝘂 𝗘𝗻𝗷𝗼𝘆 🥳 # ]࿐\n ╔╦══• •✠•❀•✠ • •══╦╗\n ♥ ═╩╝ " : msg = threadData.customJoin;
+			(typeof threadData.customJoin == "undefined") ? msg = "╔════•| ✿ |•════╗\n 🌿𝗛𝗲𝗹𝗹𝗼 🌿𝗙𝗿𝗶𝗲𝗻𝗱 🌿\n╚════•| ✿ |•════╝\n ✨🆆🅴🅻🅻 🅲🅾🅼🅴✨\n ❥𝐍𝐄𝐖~\n ~🇲‌🇪‌🇲‌🇧‌🇪‌🇷‌~\n    {uName}\n\n༄ 𝗜𝗻 𝗢𝘂𝗿 𝗚𝗿𝗼𝘂𝗽✺࿐\n {threadName}\n 🥰🖤🌸𝗛𝗮𝗽𝗽𝘆🍀𝗘𝗻𝗷𝗼𝘆🍀—🌸🥀\n🥀𝐌𝐞𝐥𝐞𝐫𝐚 𝐁𝐚𝐬𝐧𝐮🥀\n༄✺𝗔𝗻𝗶 𝘁𝗺𝗶 𝘆𝗼 𝗚𝗿𝗼𝘂𝗽 𝗞𝗼  {soThanhVien}th 𝗠𝗲𝗺𝗯𝗲𝗿 𝗛𝗮𝘂 𝗘𝗻𝗷𝗼𝘆 🥳 # ]࿐\n ╔╦══• •✠•❀•✠ • •══╦╗\n ♥ ═╩╝ " : msg = threadData.customJoin;
 			msg = msg 
 			.replace(/\{uName}/g, nameArray.join(', '))
 			.replace(/\{type}/g, (memLength.length > 1) ?  'you' : 'Friend')
@@ -57,13 +57,13 @@ memLength.sort((a, b) => a - b);
 			.replace(/\{threadName}/g, threadName);			
 
       var link = [
-"",
+"https://i.imgur.com/E49ptBn.jpg",
 "",
 "",
 "",
       ];
-				var callback = () => api.sendMessage({ body: msg, attachment: fs.createReadStream(__dirname + "/cache/joinmp4/intro.mp4"), mentions }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/joinmp4/intro.mp4"));
-    return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname + "/cache/joinmp4/intro.mp4")).on("close", () => callback());       
+				var callback = () => api.sendMessage({ body: msg, attachment: fs.createReadStream(__dirname + "/cache/leiamnashJ.jpg"), mentions }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/leiamnashJ.jpg"));
+    return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname + "/cache/leiamnashJ.jpg")).on("close", () => callback());       
       	    }
 })
         }
