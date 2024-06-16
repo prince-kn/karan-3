@@ -13,7 +13,7 @@ module.exports = {
     config: {
         name: 'flagGame',
         version: '3.0',
-        credits: 'RKO BRO',
+        credits: 'Dipto',
         cooldowns: 1,
         hasPermission: 0,
         description: 'Guess the flag name',
