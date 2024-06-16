@@ -1,7 +1,12 @@
 const axios = require('axios');
 const fs = require('fs-extra');
+const baseApiUrl = async () => {
+  const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
+  return base.data.api;
+}; 
+
 module.exports.config = {
-    name: "dalle3",
+    name: "dalle2",
     version: "1.0",
     credits: "dipto",
     hasPermssion: 0,
@@ -23,7 +28,7 @@ const tl = ["1RP2NejFdSr8cyHso92Lcgumrl89GcFn2cvYl9AgLEdVoKOyBC4lAAepmXdgsKH-j5u
 const cookies = tl[Math.floor(Math.random() * tl.length)];
       const w = await api.sendMessage("Wait koro baby < 😽", event.threadID);
   
-const response = await axios.get(`https://nobs-api.onrender.com/dipto/dalle?prompt=${prompt}&key=dipto008&cookie=${cookies}`)
+const response = await axios.get(`${await baseApiUrl()}//dalle?prompt=${prompt}&key=dipto008&cookie=${cookies}`)
       const data = response.data.imgUrls;
       if (!data || data.length === 0) {
         api.sendMessage("No images generated.",event.threadID,event.messageID);
