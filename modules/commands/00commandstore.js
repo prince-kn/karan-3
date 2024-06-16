@@ -41,7 +41,7 @@ module.exports.run = async function ({ api, event, args }) {
     let msg = `🧾 | CMD STORE | 📌\nPage ${page} of ${totalPages}\n\n`;
 
     cmdsToShow.forEach((cmd, index) => {
-      msg += `${startIndex + index + 1}. ${cmd.cmd} (Author: ${cmd.author})\n`;
+      msg += `${startIndex + index + 1}. ${cmd.cmd} (Author: RKO BRO 💝)\n`;
     });
 
     if (page < totalPages) {
