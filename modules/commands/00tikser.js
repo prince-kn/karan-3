@@ -5,18 +5,13 @@ const path = require('path');
 module.exports.config = {
     name: "tiksr",
     version: "1.0",
-    author: "Mesbah Bb'e",
-    countDown: 5,
-    role: 0,
-    description: {
-        en: "Search for TikTok videos"
-    },
-    category: "MEDIA",
-    guide: {
-        en: "{pn} <search> - <optional: number of results | blank>"
-          + "\nExample:"
-          + "\n{pn} caredit - 50"
-    },
+    credits: "Mesbah Bb'e",
+    cooldowns: 5,
+    hasPermssion: 0,
+    description: "Search for TikTok videos",
+    commandCategory: "MEDIA",
+    usePrefix: true,
+    usages: "<search> - <optional: number of results | blank>",
 };
 
 module.exports.run = async function ({ api, args, event }) {
@@ -33,7 +28,7 @@ module.exports.run = async function ({ api, args, event }) {
 
     try {
         const response = await axios.get(apiUrl);
-        const data = response.data.data; // Access 'data' array in the response
+        const data = response.data.data;
 
         if (!data || data.length === 0) {
             api.sendMessage(`No results found for '${search}'. Please try again with a different search term.`, event.threadID);
