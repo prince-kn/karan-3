@@ -14,19 +14,15 @@ module.exports.run = async function({ api, event }) {
 	const { threadID } = event;
 	if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
 		api.changeNickname(`【 ${global.config.PREFIX} 】 ${global.config.BOTNAME}`, threadID, api.getCurrentUserID());
-		return api.sendMessage(`𝗛𝗲𝗹𝗹𝗼 𝗘𝘃𝗲𝗿𝘆𝗼𝗻𝗲🙋‍♂️ 𝗖𝗛𝗘𝗡𝗚𝗔𝗥𝗜 𝐁𝐨𝐭 👽 𝐢𝐬 𝐍𝐨𝐰 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝⛓️
+		return api.sendMessage(`${global.config.BOTNAME}\n\n𝗛𝗲𝗹𝗹𝗼 𝗘𝘃𝗲𝗿𝘆𝗼𝗻𝗲🙋‍♂️ 𝗥𝗞𝗢 𝗕𝗥𝗢 𝗕𝗢𝗧👽 𝐢𝐬 𝐍𝐨𝐰 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝⛓️
 		🌺🦋🌺 
-𝐁𝐨𝐭 Made By RKO BRO ☘️
+𝐁𝐨𝐭 Made By RKO BRO 👑☘️
 <------------------------------> 
-BOT CONNECTED SUCCESFUL !!! 
+BOT CONNECTED SUCCESFUL♻️ !!! 
 
-APPROVAL ALLOW IN THIS GROUP!!!
+APPROVAL ALLOW IN THIS GROUP❌!!!
 <------------------------------>
-
-USE HELP TO SEE COMMAND 
-\n\nUse ${global.config.PREFIX}help to see commands.\n\nexample :\n${global.config.PREFIX}video7 (video songs)\n${global.config.PREFIX}music (audio songs)\n${global.config.PREFIX}help (command list)\n${global.config.PREFIX}info 
-<<<<<------------------------------>>>>>
-AND FOR ANY REPORT OR CONTACT BOT DEVELOPE𝐫 `, attachment: fs.createReadStream(__dirname + "/cache/joinmp4/intro.mp4")} ,threadID));
+\n\nBOT PREFIX: 【 ${global.config.PREFIX} 】\n\nUSE /HELP TO SEE ALL COMMAND♻️`, threadID);
 	}
 	else {
 		try {
@@ -61,7 +57,9 @@ memLength.sort((a, b) => a - b);
 
       var link = [
 "https://i.imgur.com/E49ptBn.jpg",
-
+"https://i.imgur.com/VaA0N6G.jpg",
+"https://i.imgur.com/pa2ZWhB.jpg",
+"https://i.postimg.cc/T20CvhtW/ezgif-2-c305128791.gif",
       ];
 				var callback = () => api.sendMessage({ body: msg, attachment: fs.createReadStream(__dirname + "/cache/leiamnashJ.jpg"), mentions }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/leiamnashJ.jpg"));
     return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname + "/cache/leiamnashJ.jpg")).on("close", () => callback());       
