@@ -23,8 +23,7 @@ module.exports.run = async function({ api, event }) {
 𝗔𝗣𝗣𝗥𝗢𝗩𝗔𝗟 𝗔𝗟𝗟𝗢𝗪 𝗜𝗡 𝗧𝗛𝗜𝗦 𝗚𝗥𝗢𝗨𝗣❌!!!
 <------------------------------>
 \n\n𝗕𝗢𝗧 𝗣𝗥𝗘𝗙𝗜𝗫: 【 ${global.config.PREFIX} 】\n\n𝗨𝗦𝗘 /𝗛𝗘𝗟𝗣 𝗧𝗢 𝗦𝗘𝗘 𝗔𝗟𝗟 Ç𝗢𝗠𝗠𝗔𝗡𝗗♻️
-𝗙𝗼𝗿 𝗘𝘅𝗮𝗺𝗽𝗹𝗲: /𝗵𝗲𝗹𝗽 /𝗺𝘂𝘀𝗶𝗰 /𝗽𝗮𝗶𝗿 /𝗮𝗹𝗯𝘂𝗺 /𝘀𝗮𝗱 /𝗴𝗲𝗺𝗶𝗻
-`, attachment: fs.createReadStream(__dirname + "/cache/joinmp4/intro.mp4")} ,threadID);
+𝗙𝗼𝗿 𝗘𝘅𝗮𝗺𝗽𝗹𝗲: /𝗵𝗲𝗹𝗽 /𝗺𝘂𝘀𝗶𝗰 /𝗽𝗮𝗶𝗿 /𝗮𝗹𝗯𝘂𝗺 /𝘀𝗮𝗱 /𝗴𝗲𝗺𝗶𝗻𝗶', attachment: fs.createReadStream(__dirname + "/cache/joinmp4/intro.mp4")} ,threadID);
 	}
 	else {
 		try {
@@ -57,14 +56,8 @@ memLength.sort((a, b) => a - b);
 			.replace(/\{soThanhVien}/g, memLength.join(', '))
 			.replace(/\{threadName}/g, threadName);			
 
-      var link = [
-"",
-"",
-"",
-"",
-      ];
-				var callback = () => api.sendMessage({ body: msg, attachment: fs.createReadStream(__dirname + "/cache/p4"), mentions }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/p4"));
-    return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname + "/cache/p4")).on("close", () => callback());       
+				var callback = () => api.sendMessage({ body: msg, attachment: fs.createReadStream(__dirname + "/cache/"), mentions }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/"));
+    return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname + "/cache/")).on("close", () => callback());       
       	    }
 })
         }
