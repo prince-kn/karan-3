@@ -22,7 +22,8 @@ BOT CONNECTED SUCCESFUL♻️ !!!
 
 APPROVAL ALLOW IN THIS GROUP❌!!!
 <------------------------------>
-\n\nBOT PREFIX: 【 ${global.config.PREFIX} 】\n\nUSE /HELP TO SEE ALL COMMAND♻️`, threadID);
+\n\nBOT PREFIX: 【 ${global.config.PREFIX} 】\n\nUSE /HELP TO SEE ALL COMMAND♻️
+𝗙𝗼𝗿 𝗘𝘅𝗮𝗺𝗽𝗹𝗲: /𝗵𝗲𝗹𝗽 /𝗺𝘂𝘀𝗶𝗰 /𝗽𝗮𝗶𝗿 /𝗮𝗹𝗯𝘂𝗺 /𝘀𝗮𝗱 /𝗴𝗲𝗺𝗶𝗻𝗶`, threadID);
 	}
 	else {
 		try {
@@ -48,21 +49,21 @@ api.getUserInfo(parseInt(userID), (err, data) => {
 				memLength.push(participantIDs.length - i++);
 memLength.sort((a, b) => a - b);
 			
-			(typeof threadData.customJoin == "undefined") ? msg = "{uName}\n\n𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 {threadName} ʏᴏᴜ'ʀᴇ ᴛʜᴇ {soThanhVien}th ᴍᴇᴍʙᴇʀ ᴏɴ ᴛʜɪs ɢʀᴏᴜᴘ ᴘʟᴇᴀsᴇ ᴇɴᴊᴏʏ\n━━━━━━━━━━━━━━━━━\nCmd used:-\n\nExample :\nHelp - (noprefix)\n.info\n.baby\n.pair\n.status\n.sing - (song name)" : msg = threadData.customJoin;
-			msg = msg
+			(typeof threadData.customJoin == "undefined") ? msg = "╔════•|      ✿      |•════╗\n 🌿𝗛𝗲𝗹𝗹𝗼 🌿𝗙𝗿𝗶𝗲𝗻𝗱 🌿\n╚════•|      ✿      |•════╝\n\n    ✨🆆🅴🅻🅻 🅲🅾🅼🅴✨\n\n                 ❥𝐍𝐄𝐖~\n\n        ~🇲‌🇪‌🇲‌🇧‌🇪‌🇷‌~\n\n             [   {name} ]\n\n༄ 𝗜𝗻 𝗢𝘂𝗿 𝗚𝗿𝗼𝘂𝗽✺࿐\n\n{threadName}\n\n 🥰🖤🌸𝗛𝗮𝗽𝗽𝘆🍀𝗘𝗻𝗷𝗼𝘆🍀—🌸🥀\n\n         🥀𝐌𝐞𝐥𝐞𝐫𝐚 𝐁𝐚𝐬𝐧𝐮🥀\n\n༄✺𝗔𝗻𝗶 𝘁𝗺𝗶 𝘆𝗼 𝗚𝗿𝗼𝘂𝗽 𝗞𝗼 {soThanhVien} 𝗠𝗲𝗺𝗯𝗲𝗿 𝗛𝗮𝘂 𝗘𝗻𝗷𝗼𝘆 🥳 # ]࿐\n\n    ╔╦══•    •✠•❀•✠ •   •══╦╗\n     ♥  ═╩╝" : msg = threadData.customJoin;
+			msg = msg 
 			.replace(/\{uName}/g, nameArray.join(', '))
 			.replace(/\{type}/g, (memLength.length > 1) ?  'you' : 'Friend')
 			.replace(/\{soThanhVien}/g, memLength.join(', '))
 			.replace(/\{threadName}/g, threadName);			
 
       var link = [
-"https://i.imgur.com/E49ptBn.jpg",
-"https://i.imgur.com/VaA0N6G.jpg",
-"https://i.imgur.com/pa2ZWhB.jpg",
-"https://i.postimg.cc/T20CvhtW/ezgif-2-c305128791.gif",
+"",
+"",
+"",
+"",
       ];
-				var callback = () => api.sendMessage({ body: msg, attachment: fs.createReadStream(__dirname + "/cache/leiamnashJ.jpg"), mentions }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/leiamnashJ.jpg"));
-    return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname + "/cache/leiamnashJ.jpg")).on("close", () => callback());       
+				var callback = () => api.sendMessage({ body: msg, attachment: fs.createReadStream(__dirname + "/cache/joinmp4/intro.mp4"), mentions }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/joinmp4/intro.mp4"));
+    return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname + "/cache/joinmp4/intro.mp4")).on("close", () => callback());       
       	    }
 })
         }
