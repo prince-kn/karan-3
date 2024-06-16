@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "joinNoti",
+	name: "joinNoti2",
 	eventType: ["log:subscribe"],
 	version: "1.0.1",
 	credits: "AYAN CHOWDHURY",
@@ -14,7 +14,18 @@ module.exports.run = async function({ api, event }) {
 	const { threadID } = event;
 	if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
 		api.changeNickname(`【 ${global.config.PREFIX} 】 ${global.config.BOTNAME}`, threadID, api.getCurrentUserID());
-		return api.sendMessage(`${global.config.BOTNAME}\n\nHello Everyone🙋‍♂️ RKO 𝐁𝐨𝐭 𝐢𝐬 𝐍𝐨𝐰 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝⛓️\n\nBot prefix: 【 ${global.config.PREFIX} 】\n\nTo view the list of commands, please enter: Help`, threadID);
+		return api.sendMessage(`${global.config.BOTNAME}\n\nHello Everyone🙋‍♂️ RKO 𝐁𝐨𝐭 𝐢𝐬 𝐍𝐨𝐰 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝⛓️", event.threadID, () => api.sendMessage({body:`🌺🦋🌺 
+𝐁𝐨𝐭 Made By RKO BRO ☘️
+<------------------------------>  
+BOT CONNECTED SUCCESFUL !!! 
+
+APPROVAL ALLOW IN THIS GROUP!!!
+<------------------------------>
+
+USE HELP TO SEE COMMAND 
+\n\nUse ${global.config.PREFIX}help to see commands.\n\nexample :\n${global.config.PREFIX}video7 (video songs)\n${global.config.PREFIX}music (audio songs)\n${global.config.PREFIX}help (command list)\n${global.config.PREFIX}info 
+<<<<<------------------------------>>>>>
+AND FOR ANY REPORT OR CONTACT BOT DEVELOPE𝐫 `, attachment: fs.createReadStream(__dirname + "/cache/joinmp4/intro.mp4")} ,threadID));
 	}
 	else {
 		try {
