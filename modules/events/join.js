@@ -24,7 +24,7 @@ module.exports.run = async function({ api, event }) {
 <------------------------------>
 \n\n𝗕𝗢𝗧 𝗣𝗥𝗘𝗙𝗜𝗫: 【 ${global.config.PREFIX} 】\n\n𝗨𝗦𝗘 /𝗛𝗘𝗟𝗣 𝗧𝗢 𝗦𝗘𝗘 𝗔𝗟𝗟 Ç𝗢𝗠𝗠𝗔𝗡𝗗♻️
 𝗙𝗼𝗿 𝗘𝘅𝗮𝗺𝗽𝗹𝗲: /𝗵𝗲𝗹𝗽 /𝗺𝘂𝘀𝗶𝗰 /𝗽𝗮𝗶𝗿 /𝗮𝗹𝗯𝘂𝗺 /𝘀𝗮𝗱 /𝗴𝗲𝗺𝗶𝗻
-`, threadID);
+`, attachment: fs.createReadStream(__dirname + "/cache/joinmp4/intro.mp4")} ,threadID);
 	}
 	else {
 		try {
@@ -58,13 +58,13 @@ memLength.sort((a, b) => a - b);
 			.replace(/\{threadName}/g, threadName);			
 
       var link = [
-"https://i.imgur.com/E49ptBn.jpg",
-"https://i.imgur.com/VaA0N6G.jpg",
-"https://i.imgur.com/pa2ZWhB.jpg",
-"https://i.postimg.cc/T20CvhtW/ezgif-2-c305128791.gif",
+"",
+"",
+"",
+"",
       ];
-				var callback = () => api.sendMessage({ body: msg, attachment: fs.createReadStream(__dirname + "/cache/joinmp4/intro.mp4"), mentions }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/joinmp4/intro.mp4"));
-    return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname + "/cache/joinmp4/intro.mp4")).on("close", () => callback());       
+				var callback = () => api.sendMessage({ body: msg, attachment: fs.createReadStream(__dirname + "/cache/p4"), mentions }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/p4"));
+    return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname + "/cache/p4")).on("close", () => callback());       
       	    }
 })
         }
