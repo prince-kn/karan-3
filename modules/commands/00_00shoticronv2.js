@@ -1,147 +1,52 @@
-const axios = require('axios');
-const fs = require('fs');
-const request = require('request');
-
-const shotiAutoState = {};
-const shotiAutoInterval = {};
-let videoCounter = 0;
-let errorVideoCounter = 0;
-const lastVideoError = {};
-const defaultInterval = 60 * 60 * 1000; 
+const path = require("path");
+const axios = require("axios");
+const fs = require("fs");
 
 module.exports.config = {
-	name: 'shoticronv2',
-	version: '1.0',
-	hasPermission: 2,
-	credits: '𝙼𝙰𝚁𝙹𝙷𝚄𝙽 𝙱𝙰𝚈𝙻𝙾𝙽',
-	usePrefix: false,
-	description: 'Random shawty Video',
-	commandCategory: 'fun',
-	usages: '',
-	cooldowns: 0,
+  name: "shoti",
+  version: "9",
+  credits: "Eugene Aguilar",
+  description: "Generate random shoti 😝",
+  commandCategory: "media",
+  hasPermssion: 0,
+  cooldowns: 9,
+  usages: "[shoti]",
+  role: 0,
+  hasPrefix: false,
 };
 
-const shoticron = async (api, event, threadID) => {
-	try {
-		let response = await axios.post('https://api--v1-shoti.vercel.app/api/v1/get', { apikey: '$shoti-1hg4gifgnlfdmeslom8' });
-		console.log('API Response:', response.data);
+module.exports.run = async function ({ api, event }) {
+  try {
+    api.setMessageReaction("🕥", event.messageID, (err) => {}, true);
 
-		if (response.data.error) {
-			throw new Error(`API Error: ${response.data.error}`);
-		}
+      const response = await axios.post(`https://shotiapi.onrender.com/api/request/f`);
 
-		const userInfo = response.data.data.user;
-		const videoInfo = response.data.data;
-		const title = videoInfo.title;
-		const durations = videoInfo.duration;
-		const region = videoInfo.region;
-		const username = userInfo.username;
-		const nickname = userInfo.nickname;
+      const video = response.data.data.eurixmp4;
+      const username = response.data.data.username;
+      const nickname = response.data.data.nickname;
+      const title = response.data.data.title;
 
-		videoCounter++;
+      const videoPath = path.join(__dirname, "cache", "eabab.mp4");
 
-		const tid = event.threadID;
-		const file = fs.createWriteStream('temp_video.mp4');
-		const rqs = request(encodeURI(response.data.data.url));
-		rqs.pipe(file);
+      const videoResponse = await axios.get(video, { responseType: "arraybuffer" });
 
-		file.on('finish', () => {
-			api.sendMessage({
-				body: `🌸|•ᴛɪᴛʟᴇ: ${title}\n🌸|•ᴜsᴇʀɴᴀᴍᴇ: @${username}\n🌸|•ɴɪᴄᴋɴᴀᴍᴇ: ${nickname}\n🌸|•ᴅᴜʀᴀᴛɪᴏɴ: ${durations}`,
-				attachment: fs.createReadStream('temp_video.mp4'),
-			}, threadID, () => {
-				fs.unlink('temp_video.mp4', (err) => {
-					if (err) {
-						console.error('Error deleting temporary file:', err);
-					}
-				});
-			});
-		});
-	} catch (error) {
-		console.error('Error fetching or sending the video:', error);
-		lastVideoError[threadID] = error.message;
-		videoCounter++;
-		errorVideoCounter++;
-	}
+      fs.writeFileSync(videoPath, Buffer.from(videoResponse.data));
+
+
+        api.setMessageReaction("✅", event.messageID, (err) => {}, true);
+
+
+      await api.sendMessage(
+        {
+          body: `Username: ${username}\nNickname: ${nickname}\nTitle: ${title}`,
+          attachment: fs.createReadStream(videoPath),
+        },
+        event.threadID,
+        event.messageID
+      );
+    fs.unlinkSync(videoPath);
+  } catch (error) {
+    api.sendMessage(`error: ${error.message}`, event.threadID, event.messageID);
+    console.log(error);
+  }
 };
-
-module.exports.run = async ({ api, event }) => {
-	const threadID = event.threadID;
-	const commandArgs = event.body.toLowerCase().split(' ');
-
-	const allowedAdminUID = '100053549552408';
-	if (commandArgs[1] === 'setinterval') {
-		const newIntervalValue = parseFloat(commandArgs[2]);
-		const newIntervalUnit = commandArgs[3]?.toLowerCase();
-
-		if (!isNaN(newIntervalValue) && newIntervalValue > 0) {
-			let newInterval;
-
-			if (newIntervalUnit === 'hour' || newIntervalUnit === 'hours') {
-				newInterval = newIntervalValue * 60 * 60 * 1000; // Convert hours to milliseconds
-				const unit = newIntervalValue === 1 ? 'hour' : 'hours';
-				api.sendMessage(`🌸|•Interval time set to ${newIntervalValue} ${unit}.`, threadID);
-			} else if (newIntervalUnit === 'minute' || newIntervalUnit === 'minutes') {
-				newInterval = newIntervalValue * 60 * 1000; // Convert minutes to milliseconds
-				const unit = newIntervalValue === 1 ? 'minute' : 'minutes';
-				api.sendMessage(`🌸|•Interval time set to ${newIntervalValue} ${unit}.`, threadID);
-			} else {
-				api.sendMessage('🌸|•Invalid unit. Please use "minutes" or "hours".', threadID);
-				return;
-			}
-
-			shotiAutoInterval[threadID] = newInterval;
-		} else {
-			api.sendMessage('🌸|•Invalid interval time. Please provide a valid positive number.', threadID);
-		}
-		return;
-	} else if (commandArgs[1] === 'interval') {
-		const currentInterval = shotiAutoInterval[threadID] || defaultInterval;
-		const unit = currentInterval === 60 * 60 * 1000 ? 'hour' : 'minute';
-		api.sendMessage(`🌸|•Current interval time is set to ${currentInterval / (unit === 'hour' ? 60 * 60 * 1000 : 60 * 1000)} ${unit}.`, threadID);
-		return;
-	} else if (commandArgs[1] === 'on') {
-		if (!shotiAutoState[threadID]) {
-			shotiAutoState[threadID] = true;
-			const intervalUnit = shotiAutoInterval[threadID] ? (shotiAutoInterval[threadID] === 60 * 60 * 1000 ? 'hour' : 'minute') : 'hour';
-			const intervalValue = shotiAutoInterval[threadID] ? shotiAutoInterval[threadID] / (intervalUnit === 'hour' ? 60 * 60 * 1000 : 60 * 1000) : 1;
-			const intervalMessage = `will send video every ${intervalValue} ${intervalUnit}${intervalValue === 1 ? '' : 's'}`;
-
-			api.sendMessage(`🌸|•Command feature is turned on, ${intervalMessage}.`, threadID);
-
-			shoticron(api, event, threadID);
-
-			setInterval(() => {
-				if (shotiAutoState[threadID]) {
-					shoticron(api, event, threadID);
-				}
-			}, shotiAutoInterval[threadID] || defaultInterval);
-		} else {
-			api.sendMessage('🌸|•Command feature is already turned on', threadID);
-		}
-		return;
-	} else if (commandArgs[1] === 'off') {
-		shotiAutoState[threadID] = false;
-		api.sendMessage('🌸|•Command feature is turned off', threadID);
-		return;
-	} else if (commandArgs[1] === 'status') {
-		const statusMessage = shotiAutoState[threadID] ? 'on' : 'off';
-		const intervalMessage = shotiAutoInterval[threadID] ? `Interval time set to ${shotiAutoInterval[threadID] / (shotiAutoInterval[threadID] === 60 * 60 * 1000 ? 60 : 1000)} minutes.` : 'Interval time not set. Using the default 1 -hour interval.';
-				const errorMessage = lastVideoError[threadID] ? `Last video error: ${lastVideoError[threadID]}` : '';
-
-				api.sendMessage(`🌸|•Command feature is currently ${statusMessage}.\n🌸|•Total videos sent: ${videoCounter}\n🌸|•Total error videos: ${errorVideoCounter}\n${errorMessage}`, threadID);
-				return;
-			} else if (commandArgs[1] === 'resetcount') {
-				// Check if the user has permission to reset counts
-				if (event.senderID === allowedAdminUID) {
-					videoCounter = 0;
-					errorVideoCounter = 0;
-					api.sendMessage('🌸|•Video counts have been reset.', threadID);
-				} else {
-					api.sendMessage('🌸|•You do not have permission to reset counts.', threadID);
-				}
-				return;
-			}
-
-			api.sendMessage('🌸|•Invalid command.\n\n\n🌸|• "shoticron on", "shoticron off" - to turn ON or turn OFF.\n\n\n🌸|• "shoticron setinterval <minutes/hours>" - set the timer for video\n\n\n🌸|• "shoticron interval" - check the interval\n\n\n🌸|• "shoticron status" - check the status off command', threadID);
-			};
