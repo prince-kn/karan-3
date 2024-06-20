@@ -7,8 +7,7 @@ const baseApiUrl = async () => {
     return base.data.api;
 };
 
-module.exports = {
-  config: {
+module.exports.config = {
     name: "baby",
     version: "6.9.0",
     credits: "dipto",
@@ -17,8 +16,8 @@ module.exports = {
     description: "better then all sim simi",
     commandCategory: "chat",
     usages: `[anyMessage] OR\nteach [YourMessage] - [Reply1], [Reply2], [Reply3]... OR\nteach [react] [YourMessage] - [react1], [react2], [react3]... OR\nremove [YourMessage] OR\nrm [YourMessage] - [indexNumber] OR\nmsg [YourMessage] OR\nlist OR \nall OR\nedit [YourMessage] - [NeeMessage]`,
-  },
-  run: async ({ api, event, args, Users }) => {
+  };
+  module.exports.run = async function ({ api, event, args, Users }) => {
     const link = `${await baseApiUrl()}/baby`;
     const dipto = args.join(" ").toLowerCase();
     const uid = event.senderID;
@@ -120,5 +119,4 @@ module.exports = {
       console.error('Error in command execution:', e);
       return api.sendMessage(`error: ${e.message}`, event.threadID, event.messageID);
     }
-  }
 };
