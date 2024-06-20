@@ -7,7 +7,7 @@ const ITEMS_PER_PAGE = 10;
 module.exports.config = {
   name: "cmdstore",
   credits: "RKO BRO",
-  hasPermission: 0,
+  hasPermission: 2,
   version: "2.0",
   description: "Commands Store of RKO BRO",
   cooldowns: 3,
