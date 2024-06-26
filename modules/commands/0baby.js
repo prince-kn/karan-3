@@ -1,20 +1,19 @@
 const axios = require('axios');
 
 const baseApiUrl = async () => {
-  try {
     const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
     console.log(base.data.api);
     return base.data.api;
 };
 
 module.exports.config = {
-  name: "baby",
+  name: "babyx2",
   version: "6.9.0",
   credits: "dipto",
   countDown: 0,
   hasPermission: 0,
   description: "better than all sim simi",
-  commandCategory: "chat",
+  category: "chat",
   usePrefix: true,
   usages: `[anyMessage] OR\nteach [YourMessage] - [Reply1], [Reply2], [Reply3]... OR\nteach [react] [YourMessage] - [react1], [react2], [react3]... OR\nremove [YourMessage] OR\nrm [YourMessage] - [indexNumber] OR\nmsg [YourMessage] OR\nlist OR\nall OR\nedit [YourMessage] - [NewMessage]`,
 };
@@ -114,7 +113,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
       return api.sendMessage(response.data.reply, event.threadID, event.messageID);
     }
 
-    const response = await axios.get(`${link}?text=${dipto}`);
+    const response = await axios.get(`${link}?text=${dipto}&language=hindi`);
     return api.sendMessage(response.data.reply, event.threadID, event.messageID);
 
   } catch (e) {
