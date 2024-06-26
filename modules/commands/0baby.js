@@ -5,10 +5,6 @@ const baseApiUrl = async () => {
     const base = await axios.get(`https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`);
     console.log(base.data.api);
     return base.data.api;
-  } catch (error) {
-    console.error('Error fetching base API URL:', error);
-    throw new Error('Failed to fetch base API URL');
-  }
 };
 
 module.exports.config = {
@@ -37,19 +33,19 @@ module.exports.run = async function ({ api, event, args, Users }) {
 
     if (args[0] === 'remove') {
       const fina = dipto.replace("remove ", "");
-      const respons = await axios.get(`${link}?remove=${fina}`);
+      const respons = await axios.get(`${link}?remove=${fina}&language=hindi`);
       return api.sendMessage(respons.data.message, event.threadID, event.messageID);
     }
 
     if (args[0] === 'rm' && dipto.includes('-')) {
       const [fi, f] = dipto.replace("rm ", "").split(' - ');
-      const respons = await axios.get(`${link}?remove=${fi}&index=${f}`);
+      const respons = await axios.get(`${link}?remove=${fi}&index=${f}&language=hindi`);
       return api.sendMessage(respons.data.message, event.threadID, event.messageID);
     }
 
     if (args[0] === 'list') {
       if (args[1] === 'all') {
-        const res = await axios.get(`${link}?list=all`);
+        const res = await axios.get(`${link}?list=all&language=hindi`);
         const data = res.data.teacher.teacherList;
         const teachers = await Promise.all(data.map(async (item) => {
           const number = Object.keys(item)[0];
@@ -62,14 +58,14 @@ module.exports.run = async function ({ api, event, args, Users }) {
         const output = teachers.map((teacher, index) => `${index + 1}/ ${teacher.name}: ${teacher.value}`).join('\n');
         return api.sendMessage(`Total Teach = ${data.length}\n\n👑 | List of Teachers of baby\n${output}`, event.threadID, event.messageID);
       } else {
-        const respo = await axios.get(`${link}?list=all`);
+        const respo = await axios.get(`${link}?list=all&language=hindi`);
         return api.sendMessage(`Total Teach = ${respo.data.length}`, event.threadID, event.messageID);
       }
     }
 
     if (args[0] === 'msg' || args[0] === 'message') {
       const fuk = dipto.replace("msg ", "");
-      const respo = await axios.get(`${link}?list=${fuk}`);
+      const respo = await axios.get(`${link}?list=${fuk}&language=hindi`);
       return api.sendMessage(`Message ${fuk} = ${respo.data.data}`, event.threadID, event.messageID);
     }
 
@@ -78,7 +74,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
       if (command.length < 2) {
         return api.sendMessage('❌ | Invalid format! Use edit [YourMessage] - [NewReply]', event.threadID, event.messageID);
       }
-      const res = await axios.get(`${link}?edit=${args[1]}&replace=${command}`);
+      const res = await axios.get(`${link}?edit=${args[1]}&replace=${command}&language=hindi`);
       return api.sendMessage(`changed ${res.data.message}`, event.threadID, event.messageID);
     }
 
