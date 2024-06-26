@@ -6,14 +6,12 @@ const path = require("path");
 module.exports = {
 config: {
 name: "art",
-credits: "ST | Sheikh Tamim",
+credits: "HIMAL",
 description: "Art Image Generator",
 commandCategory: "Art Generator",
 hasPermission: "0",
-hasPrefix: "true"
-usages: {
-en: `Reply to an image with: art <prompt> | <model> | <control>\nthere are 3 model available and 5 control`
-}
+usePrefix: true ,
+
 },
 
 run: async function ({ api, event }) {
