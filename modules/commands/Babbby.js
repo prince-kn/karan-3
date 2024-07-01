@@ -53,6 +53,6 @@ link: mg
 }
 } catch (error) {
 console.error(`Failed to get an answer: ${error.message}`);
-api.sendMessage(`YESKO REPLY SAVE GAREKO XINS TEACH GARA PAILE 🥺`,event.threadID,event.messageID);
+api.sendMessage(`${error.message}.\nAn error`,event.threadID,event.messageID);
 }
 };
