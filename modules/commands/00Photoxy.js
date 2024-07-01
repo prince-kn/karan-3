@@ -13,7 +13,7 @@ module.exports.config = {
     'nayan-server': ''
   }
 };
-module.exports.run = async function({ api, event, args }) {
+run = async function({ api, event, args }) {
 
 
   const { messageID, threadID } = event;
