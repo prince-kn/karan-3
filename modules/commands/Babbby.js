@@ -6,7 +6,7 @@ version: "1.0.0",
 hasPermission: 0, 
 credits: "dipto", 
 description: "better then all Sim simi with multiple conversation",
-usePrefix: true,
+usePrefix: false,
 usages: "[message]",
 commandCategory: "ChatBots",
 cooldowns: 5,
@@ -53,6 +53,6 @@ link: mg
 }
 } catch (error) {
 console.error(`Failed to get an answer: ${error.message}`);
-api.sendMessage(`${error.message}.\nAn error`,event.threadID,event.messageID);
+api.sendMessage(`YESKO REPLY SAVE GAREKO XINS TEACH GARA PAILE 🥺`,event.threadID,event.messageID);
 }
-}; 
+};
