@@ -68,7 +68,7 @@ module.exports = {
                 var waitingMsg = await api.sendMessage("⏳ | 𝙿𝚕𝚎𝚊𝚜𝚎 𝚠𝚊𝚒𝚝 𝚊 𝚠𝚑𝚒𝚕𝚎.", event.threadID);
                 api.setMessageReaction("⏳", event.messageID, (err) => {}, true)
             }
-                const { data } = await axios.post('https://nobs-api.onrender.com/dipto/groupPhoto', data2);
+                const { data } = await axios.post('https://www.noobs-api.000.pe/dipto/groupPhoto', data2);
                 const path = __dirname + "/cache/gcimg.png";
                 const imgData = (await axios.get(data.img, { responseType: "arraybuffer" })).data;
                 writeFileSync(path, Buffer.from(imgData, 'binary'));
