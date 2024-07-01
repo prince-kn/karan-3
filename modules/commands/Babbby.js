@@ -19,7 +19,7 @@ const reply = event.body.toLowerCase();
 if (isNaN(reply)) {
 const response = await axios.get(`${global.config.api}/baby?text=${encodeURIComponent(reply)}`)
 const ok = response.data.reply;
-await api.sendMessage(ok ,event.threadID,(info) => {
+await api.sendMessage(ok ,event.threadID,(error, info) => {
 global.client.handleReply.push({
 name: this.config.name,
 type: 'reply',
@@ -40,7 +40,7 @@ return;
 if (dipto) {
 const response = await axios.get(`${global.config.api}/baby?text=${dipto}`);
 const mg = response.data.reply;
-await api.sendMessage({ body: mg }, event.threadID, (info) => {
+await api.sendMessage({ body: mg }, event.threadID, (error, info) => {
 global.client.handleReply.push({
 name: this.config.name,
 type: 'reply',
