@@ -24,7 +24,7 @@ module.exports.run = async function ({ api, args, event }) {
         searchLimit = parseInt(match[2], 10);
     }
 
-    const apiUrl = `https://nobs-api.onrender.com/dipto/tiktoksearch?search=${encodeURIComponent(search)}&limit=${searchLimit}`;
+    const apiUrl = `https://www.noobs-api.000.pe/dipto/tiktoksearch?search=${encodeURIComponent(search)}&limit=${searchLimit}`;
 
     try {
         const response = await axios.get(apiUrl);
