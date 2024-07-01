@@ -28,7 +28,7 @@ const shortLang = "ne";
 // const shortLang = "hi"; // For Hindi
 // const shortLang = "en"; // For English
 
-const lang = languagesMap[shortLang] || "nepali";
+const lang = languagesMap[shortLang] || "bangla";
 
 module.exports.config = {
   name: "bby",
