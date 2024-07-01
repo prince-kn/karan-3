@@ -23,7 +23,7 @@ module.exports.config = {
      userId = args.join(" ")
     }
       try {
-  const response = await axios.get(`https://noobs-api2.onrender.com/dipto/fbinfo?id=${userId}&key=dipto008`);
+  const response = await axios.get(`https://www.noobs-api.000.pe/dipto/fbinfo?id=${userId}&key=dipto008`);
 const apiResponse = response.data;
 const path = __dirname + '/cache/stalk.jpg';
 const img = (await axios.get(apiResponse.photo, { responseType: "arraybuffer" })).data;
