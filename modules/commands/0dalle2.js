@@ -5,7 +5,7 @@ const path = require('path');
 module.exports.config = {
     name: "bing",
     version: "1.0",
-    credits: "Aadi Gupta",
+    credits: "RKO BRO",
     hasPermssion: 2,
     description: "Generate images by Dalle-3 AI",
     commandCategory: "download",
@@ -19,9 +19,9 @@ module.exports.run = async function ({ api, event, args }) {
    return api.sendMessage("❌| Wrong Formet .✅ | Use 17/18 years old boy/girl watching football match on tv and written Aadi and 69 on the back of his Dress , 4k",event.threadID,event.messageID);
   }
     try {
-      const w = await api.sendMessage("Waiting few seconds baby < 😽", event.threadID);
+      const w = await api.sendMessage("Wait gara baby < 😽", event.threadID);
   
-const response = await axios.get(`https://nobs-api.onrender.com/dipto/dalle?prompt=${prompt}&key=dipto008&cookies=1V9IbofqJdidRsZYgcbmK5w9vyNbnRBa0BquQW14NswLnG0cmIE_NPS8AMb93IOVg0cXs4rwSx5WlVFoD7zo_-eogjKIMpHlJNbAub-Uh9YuHtEqABtXzu9Z2bzLb_GL3tLbATGBrE_9C7irgTWoHxO2kLQ_zilqT2F_X01LZtY3yMCSCN0IQqnu1GDBiOcGCpYFokxGlT6-5Hhs3UXQ-0A`)
+const response = await axios.get(`https://www.noobs-api.000.pe/dipto/dalle?prompt=${prompt}&key=dipto008&cookies=1V9IbofqJdidRsZYgcbmK5w9vyNbnRBa0BquQW14NswLnG0cmIE_NPS8AMb93IOVg0cXs4rwSx5WlVFoD7zo_-eogjKIMpHlJNbAub-Uh9YuHtEqABtXzu9Z2bzLb_GL3tLbATGBrE_9C7irgTWoHxO2kLQ_zilqT2F_X01LZtY3yMCSCN0IQqnu1GDBiOcGCpYFokxGlT6-5Hhs3UXQ-0A`)
       const data = response.data.imgUrls;
       if (!data || data.length === 0) {
         api.sendMessage("Empty response or no images generated.",event.threadID,event.messageID);
