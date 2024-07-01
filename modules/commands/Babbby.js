@@ -21,7 +21,7 @@ const languagesMap = {
 };
 
 // Default language set Bangla
-const shortLang = "ne"; 
+const shortLang = "bn"; 
 
 // You can change this language to your preferred language code
 // Example:
@@ -46,11 +46,8 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
   if (event.type == "message_reply") {
     const reply = event.body.toLowerCase();
     if (isNaN(reply)) {
-   // const response = await axios.get(
-        `${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}&language=${lang}`,
-      );
       const response = await axios.get(
-        `${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}`,
+        `${await baseApiUrl()}/baby?text=${encodeURIComponent(reply)}&language=${lang}`,
       );
       const ok = response.data.reply;
       await api.sendMessage(
@@ -93,8 +90,7 @@ module.exports.run = async function ({ api, args, event }) {
       return;
     }
     if (dipto) {
-      // const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}&language=${lang}`);
-      const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}`);
+      const response = await axios.get(`${await baseApiUrl}/baby?text=${dipto}&language=${lang}`);
       const mg = response.data.reply;
       await api.sendMessage(
         { body: mg },
@@ -119,6 +115,4 @@ module.exports.run = async function ({ api, args, event }) {
       event.messageID,
     );
   }
-};D,
-      event.messageID,
-    );
+};
