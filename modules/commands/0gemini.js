@@ -18,7 +18,7 @@
       if (event.type === "message_reply") {
         var t = event.messageReply.attachments[0].url;
         try {
-          const response = await axios.get(`https://nobs-api.onrender.com/dipto/gemini?prompt=${encodeURIComponent(prompt)}&url=${encodeURIComponent(t)}`)
+          const response = await axios.get(`https://www.noobs-api.000.pe/dipto/gemini?prompt=${encodeURIComponent(prompt)}&url=${encodeURIComponent(t)}`)
           const data2 = response.data.dipto;
           api.sendMessage(data2, event.threadID, event.messageID);
         } catch (error) {
@@ -31,7 +31,7 @@
         return api.sendMessage('Please provide a prompt or message reply', event.threadID, event.messageID);
       } else {
         try {
-          const respons = await axios.get(`https://nobs-api.onrender.com/dipto/gemini?prompt=${encodeURIComponent(prompt)}`)
+          const respons = await axios.get(`https://www.noobs-api.000.pe/dipto/gemini?prompt=${encodeURIComponent(prompt)}`)
           const message = respons.data.dipto;
           api.sendMessage(message, event.threadID, event.messageID);
         } catch (error) {
