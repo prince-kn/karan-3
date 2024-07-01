@@ -12,7 +12,7 @@ module.exports.config = {
 
 module.exports.handleEvent = function({ api, event, client, __GLOBAL }) {
 	var { threadID, messageID } = event;
-	if (event.body.indexOf("girlfriend chaiyo")==0 || event.body.indexOf("gf chaiyo")==0 || event.body.indexOf("Baigan")==0 || event.body.indexOf("Began")==0) {
+	if (event.body.indexOf("girlfriend chaiyo")==0 || event.body.indexOf("gf chaiyo")==0 || event.body.indexOf("girl friend chaiyo")==0 || event.body.indexOf("kte khojdeu na ")==0) {
 		var msg = {
 				body: "yesto gf vaya pugxa ni🥵😂",
 				attachment: fs.createReadStream(__dirname + `/noprefix/gf.mp4`)
