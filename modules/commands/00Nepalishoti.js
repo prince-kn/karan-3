@@ -2,10 +2,10 @@ module.exports.config = {
   name: "shoti",
   version: "1.0.0",
   hasPermssion: 0,
-  credits: "Made by RKO BRO (Aarushi,Sandesh Junior)",//don't change credits bsdk
+  credits: "𝗠𝗔𝗗𝗘 𝗕𝗬 𝗥𝗞𝗢 𝗕𝗥𝗢 (Aarushi,Sandesh Junior)",//don't change credits bsdk
   description: "𝗥𝗔𝗡𝗗𝗢𝗠 𝗡𝗘𝗣𝗔𝗟𝗜 𝗦𝗛𝗢𝗧𝗜 (𝗚𝗜𝗥𝗟𝗦 𝗩𝗜𝗗𝗘𝗢𝗦",
   commandCategory: "Random video",
-  usages: "status",
+  usages: "",
   cooldowns: 2,
   dependencies: {
     "request":"",
