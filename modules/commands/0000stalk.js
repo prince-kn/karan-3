@@ -5,7 +5,7 @@ module.exports.config = {
    name: "stalk",
    version: "1.0", 
    author: "RKO BRO",
-   hasPermission: 1,
+   hasPermission: 0,
    description: "Retrieve information about a user on Facebook.",
    commandCategory: "Info",
    usage: "/stalk <@mention or reply to a message of the user>",
