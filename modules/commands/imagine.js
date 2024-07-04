@@ -1,7 +1,7 @@
 module.exports.config = {
   name: "imagine",
   version: "1.0.",
-  hasPermssion: 1,
+  hasPermssion: 0,
   credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
   description: "generate image from polination",
   commandCategory: "image",
