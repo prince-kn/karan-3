@@ -73,7 +73,7 @@ module.exports.run = async function ({ api, event, args }) {
             url: messageReply.body
         };
         request(options, function (error, response, body) {
-            if (error) return api.sendMessage('𝘽𝙖𝙗𝙮 𝙆𝙞𝙨𝙞 𝙇𝙞𝙣𝙠 𝙎𝙖 𝙍𝙚𝙥𝙡𝙮 𝙆𝙖𝙧𝙤𝙢 𝙉𝙖 𝙅𝙤 𝙎𝙘𝙧𝙞𝙥𝙩 𝘼𝙥 𝘼𝙥𝙣𝙖 𝘽𝙤𝙩 𝙈𝙖 𝘼𝙙𝙙 𝙆𝙖𝙧𝙣𝙖 𝘾𝙝𝙖𝙝𝙩𝙖 𝙃𝙤', threadID, messageID);
+            if (error) return api.sendMessage('𝘽𝙖𝙗𝙮 𝙆𝙞𝙨𝙞 𝙇𝙞𝙣𝙠 𝙎𝙖 𝙍𝙚𝙥𝙡𝙮 𝙆𝙖𝙧𝙤 𝙉𝙖 𝙅𝙤 𝙎𝙘𝙧𝙞𝙥𝙩 𝘼𝙥 𝘼𝙥𝙣𝙖 𝘽𝙤𝙩 𝙈𝙖 𝘼𝙙𝙙 𝙆𝙖𝙧𝙣𝙖 𝘾𝙝𝙖𝙝𝙩𝙖 𝙃𝙤', threadID, messageID);
             const load = cheerio.load(body);
             load('.language-js').each((index, el) => {
                 if (index !== 0) return;
