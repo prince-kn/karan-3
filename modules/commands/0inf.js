@@ -30,12 +30,9 @@ var callback = () => api.sendMessage({body:`❤𝐀𝐃𝐌𝐈𝐍 𝐀𝐍𝐃
 
 ☄️Bot Name︎︎︎☄️ ⚔ ${global.config.BOTNAME} ⚔
 
-🔥𝐁𝐨𝐭 𝐨𝐰𝐧𝐞𝐫 🔥☞︎︎︎ RKO BRO ☜︎︎︎✰ 
+🔥𝐁𝐨𝐭 𝐨𝐰𝐧𝐞𝐫 :- KARAN JALVANSHI  ☜︎︎︎✰ 
 ●▬▬▬▬๑۩۩๑▬▬▬▬
-🙈𝐨𝐰𝐧𝐞𝐫 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐩𝐫𝐨𝐟𝐢𝐥𝐞 𝐋𝐢𝐧𝐤🙈➪  https://www.facebook.com/profile.php?id=100084573213860https://www.facebook.com/profile.php?id=100084573213860 💞🕊️
-   ⃟ Other contacts ☑  ⃠
-✅𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦👉 @himalpaudel112
-✅𝐘𝐨𝐮𝐓𝐮𝐛𝐞 🗡 xina hau
+[[ 𝐋𝐄𝐆𝐄𝐍𝐃  𝐊𝐈𝐍𝐆 𝐉𝟒𝟏V𝟒𝐍𝟓|-|!! ]]
 ✧══════•❁❀❁•══════✧
 
 🌸𝐁𝐨𝐭 𝐏𝐫𝐞𝐟𝐢𝐱🌸☞︎︎︎☜︎︎︎✰ ${global.config.PREFIX}
