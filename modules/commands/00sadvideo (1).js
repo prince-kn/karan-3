@@ -193,6 +193,6 @@ const fs = global.nodemodule["fs-extra"];
       "https://drive.google.com/uc?export=download&id=10Bk9PpxGs_dpdJ2sNw4um5RHkQyik18C",
       "https://drive.google.com/uc?export=download&id=1-SqPBFCrY4EhBVX2FVAk-VMHzo-rkTLz"
      ];
-     var callback = () => api.sendMessage({body:`🥺 𝗛𝗼𝗽𝗲 𝘆𝗼𝘂 𝗟𝗶𝗸𝗲 𝗜𝘁, \n♥️    𝗠𝗮𝗱𝗲 𝗕𝘆 RKO BRO🫥`,attachment: fs.createReadStream(__dirname + "/cache/1.mp4")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.mp4"));
+     var callback = () => api.sendMessage({body:`🥺 𝗛𝗼𝗽𝗲 𝘆𝗼𝘂 𝗟𝗶𝗸𝗲 𝗜𝘁 `,attachment: fs.createReadStream(__dirname + "/cache/1.mp4")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.mp4"));
       return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/1.mp4")).on("close",() => callback());
    };
