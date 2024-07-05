@@ -35,7 +35,7 @@ module.exports.run = async function ({ api, event, args }) {
     const cmdsToShow = cmds.slice(startIndex, endIndex);
     let msg = `╭───✦ Cmd Store ✦───╮\n│ Page ${page} of ${totalPages}\n│ Total ${cmds.length} commands\n`;
     cmdsToShow.forEach((cmd, index) => {
-      msg += `│ ───✦ ${startIndex + index + 1}. ${cmd.cmd}\n│ AUTHOR:𝗥𝗞𝗢 𝗕𝗥𝗢 \n│ UPDATE: ${cmd.update || "N/A"}\n`;
+      msg += `│ ───✦ ${startIndex + index + 1}. ${cmd.cmd}\n│ AUTHOR:- KARAN JALVANSHI \n│ UPDATE: ${cmd.update || "N/A"}\n`;
     });
     msg += `╰─────────────⧕`;
 
