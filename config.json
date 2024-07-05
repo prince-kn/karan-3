@@ -10,12 +10,12 @@
     "EMAIL": "",
     "PASSWORD": "",
     "OTPKEY": "",
-    "BOTNAME": "CHENGARI💝♻️👑",
+    "BOTNAME": "CHINGARI💝♻️👑",
     "PREFIX": "/",
     "api":"https://www.noobs-api.000.pe/dipto",
     "ADMINBOT": [
-        "100084573213860",
-        "100015418509950"
+        "100093685579556",
+        ""
     ],
     "DATABASE": {
         "sqlite": {
