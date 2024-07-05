@@ -14,16 +14,12 @@ module.exports.run = async function({ api, event }) {
 	const { threadID } = event;
 	if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
 		api.changeNickname(`【 ${global.config.PREFIX} 】 ${global.config.BOTNAME}`, threadID, api.getCurrentUserID());
-		return api.sendMessage(`${global.config.BOTNAME}\n\n𝗛𝗲𝗹𝗹𝗼 𝗘𝘃𝗲𝗿𝘆𝗼𝗻𝗲🙋‍♂️ 𝗥𝗞𝗢 𝗕𝗥𝗢 𝗕𝗢𝗧👽 𝐢𝐬 𝐍𝐨𝐰 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝⛓️
+		return api.sendMessage(`${global.config.BOTNAME}\n\nHello dosto 💀 SARKARI BF 💀 is enter ⛓️
 		🌺🦋🌺 
-𝗕𝗼𝘁 𝗠𝗮𝗱𝗲 𝗯𝘆 𝗥𝗞𝗢 𝗕𝗥𝗢 👑☘️
 <------------------------------> 
-𝗕𝗢𝗧 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗘𝗦𝗦𝗙𝗨𝗟♻️ !!! 
-
-𝗔𝗣𝗣𝗥𝗢𝗩𝗔𝗟 𝗔𝗟𝗟𝗢𝗪 𝗜𝗡 𝗧𝗛𝗜𝗦 𝗚𝗥𝗢𝗨𝗣❌!!!
-<------------------------------>
-\n\n𝗕𝗢𝗧 𝗣𝗥𝗘𝗙𝗜𝗫: 【 ${global.config.PREFIX} 】\n\n𝗨𝗦𝗘 /𝗛𝗘𝗟𝗣 𝗧𝗢 𝗦𝗘𝗘 𝗔𝗟𝗟 𝗖𝗢𝗠𝗠𝗔𝗡𝗗♻️
-𝗙𝗼𝗿 𝗘𝘅𝗮𝗺𝗽𝗹𝗲: /𝗵𝗲𝗹𝗽 /𝗺𝘂𝘀𝗶𝗰 /𝗽𝗮𝗶𝗿 /𝗮𝗹𝗯𝘂𝗺 /𝘀𝗮𝗱 /𝗴𝗲𝗺𝗶𝗻
+   OWNER :- KARAN JALVANSHI 
+<------------------------------->
+\n\n𝗕𝗢𝗧 𝗣𝗥𝗘𝗙𝗜𝗫: 【 ${global.config.PREFIX} 】\n\nPREFIX LAGA KE HELP TYP KARO SAB CAMMAND AA JAYEGA 
 `, threadID);
 	}
 	else {
@@ -50,7 +46,7 @@ var userName = data[obj].name.replace("@", ""); 	if (userID !== api.getCurrentUs
 				memLength.push(participantIDs.length - i++);
 memLength.sort((a, b) => a - b);
 			
-			(typeof threadData.customJoin == "undefined") ? msg = "╔════•| ✿ |•════╗\n 🌿𝗛𝗲𝗹𝗹𝗼 🌿𝗙𝗿𝗶𝗲𝗻𝗱 🌿\n╚════•| ✿ |•════╝\n\n ✨🆆🅴🅻🅻 🅲🅾🅼🅴✨\n\n ❥𝐍𝐄𝐖~\n\n ~🇲‌🇪‌🇲‌🇧‌🇪‌🇷‌~\n\n [ {uName} ]\n\n༄ 𝗜𝗻 𝗢𝘂𝗿 𝗚𝗿𝗼𝘂𝗽✺࿐\n\n{threadName}\n\n 🥰🖤🌸𝗛𝗮𝗽𝗽𝘆🍀𝗘𝗻𝗷𝗼𝘆🍀—🌸🥀\n\n 🥀𝐌𝐞𝐥𝐞𝐫𝐚 𝐁𝐚𝐬𝐧𝐮🥀\n\n༄✺𝗔𝗻𝗶 𝘁𝗺𝗶 𝘆𝗼 𝗚𝗿𝗼𝘂𝗽 𝗞𝗼 {soThanhVien} 𝗠𝗲𝗺𝗯𝗲𝗿 𝗛𝗮𝘂 𝗘𝗻𝗷𝗼𝘆 🥳 # ]࿐\n\n ╔╦══• •✠•❀•✠ • •══╦╗\n ♥ ═╩╝" : msg = threadData.customJoin;
+			(typeof threadData.customJoin == "undefined") ? msg = "╔════•| ✿ |•════╗\n 🌿𝗛𝗲𝗹𝗹𝗼 🌿𝗙𝗿𝗶𝗲𝗻𝗱 🌿\n╚════•| ✿ |•════╝\n\n ✨🆆🅴🅻🅻 🅲🅾🅼🅴✨\n\n ❥𝐍𝐄𝐖~\n\n ~🇲‌🇪‌🇲‌🇧‌🇪‌🇷‌~\n\n [ {uName} ]\n\n༄ 𝗜𝗻 𝗢𝘂𝗿 𝗚𝗿𝗼𝘂𝗽✺࿐\n\n{threadName}\n\n 🥰🖤🌸𝗛𝗮𝗽𝗽𝘆🍀𝗘𝗻𝗷𝗼𝘆🍀—🌸🥀\n\n🥀🥀\n\n༄✺AAP IS GRUP KE {soThanhVien} MEMBER HO🥳 # ]࿐\n\n ╔╦══• •✠•❀•✠ • •══╦╗\n ♥ ═╩╝" : msg = threadData.customJoin;
 			msg = msg
 			.replace(/\{uName}/g, nameArray.join(', '))
 			.replace(/\{type}/g, (memLength.length > 1) ? 'you' : 'Friend')
