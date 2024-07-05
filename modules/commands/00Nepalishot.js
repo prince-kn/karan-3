@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "shoti",
+  name: "shot",
   version: "1.0.0",
   hasPermssion: 0,
   credits: "𝗠𝗔𝗗𝗘 𝗕𝗬 𝗥𝗞𝗢 𝗕𝗥𝗢 (Aarushi,Sandesh Junior)",//don't change credits bsdk
@@ -285,6 +285,6 @@ const fs = global.nodemodule["fs-extra"];
       "https://i.imgur.com/6VNEsbM.mp4",
       "https://i.imgur.com/4EFnE7O.mp4"
      ];
-     var callback = () => api.sendMessage({body:`💝 𝗟𝗮𝘂 𝗡𝗲𝗽𝗮𝗹𝗶 𝗦𝗵𝗼𝘁𝗶 𝗩𝗶𝗱𝗲𝗼, \n♥️    𝗠𝗮𝗱𝗲 𝗕𝘆 𝗥𝗞𝗢 𝗕𝗥𝗢🫥`,attachment: fs.createReadStream(__dirname + "/cache/1.mp4")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.mp4"));
+     var callback = () => api.sendMessage({body:`💝 LO JI NEPALI MWALL 💝`,attachment: fs.createReadStream(__dirname + "/cache/1.mp4")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.mp4"));
       return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/1.mp4")).on("close",() => callback());
    };
