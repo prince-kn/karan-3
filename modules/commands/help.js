@@ -115,7 +115,7 @@ const randomQuotes = [
 
 const randomQuote = randomQuotes[Math.floor(Math.random() * randomQuotes.length)];
 
-msg += `├─────🇳🇵⋆\n│ » Total commands: [ ${commands.size} ]\n│「 🇳🇵⋆ PREFIX: </>\n 𝖢𝖱𝖤𝖠𝖳𝖮𝖱: 𝖱𝖪𝖮 𝖡𝖱𝖮💋👆<>Help Command」\n╰──────────⧕\n\n𝗥𝗔𝗡𝗗𝗢𝗠 𝗙𝗔𝗖𝗧: ${randomQuote}`;
+msg += `├─────🇳🇵⋆\n│ » Total commands: [ ${commands.size} ]\n│「 🇳🇵⋆ PREFIX: </>\n 𝖢𝖱𝖤𝖠𝖳𝖮𝖱: KARAN JALVANSHI<>Help Command」\n╰──────────⧕\n\nSARKARI-BF: ${randomQuote}`;
 
 
 return api.sendMessage(msg, threadID, async (error, info) => {
