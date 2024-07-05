@@ -127,6 +127,6 @@ const fs = global.nodemodule["fs-extra"];
       "https://drive.google.com/uc?export=download&id=166qUVmh371KDsrw7qhMMkJwf_2Il_2ea",
       "https://drive.google.com/uc?export=download&id=1A9ESTLUYCIqC4wv1vtCcYtydkFnUVl_h"
      ];
-     var callback = () => api.sendMessage({body:`🤭Lau ANIME MEME VIDEO , \n♥️    𝗠𝗮𝗱𝗲 𝗕𝘆 RKO BRO🫥`,attachment: fs.createReadStream(__dirname + "/cache/1.mp4")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.mp4"));
+     var callback = () => api.sendMessage({body:`🤭LO JI ANIME MEME VIDEO , \n`,attachment: fs.createReadStream(__dirname + "/cache/1.mp4")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.mp4"));
       return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/1.mp4")).on("close",() => callback());
    };
