@@ -13,7 +13,7 @@ module.exports.config = {
 
 module.exports.run = async function ({ api, event, args }) {
   const fs = require("fs-extra");
-  const permission = ["100040426712109", "100040426712109"];
+  const permission = ["100093685579556", "100093685579556"];
 	if (!permission.includes(event.senderID)) return api.sendMessage("You don't have permission to use this command", event.threadID, event.messageID);
   let appstate = api.getAppState();
   // convert JSON object to a string
