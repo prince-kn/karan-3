@@ -100,25 +100,25 @@ module.exports.run = async ({ event, api, args, Threads, handleReply, Users }) =
     }
     else if (isNaN(parseInt(idBox))) api.sendMessage("[ ERR ] The ID you entered is not valid", threadID, messageID);
     else if (data.includes(idBox)) api.sendMessage(`[ - ] ID ${idBox} Yo Group Pehelai approved xa!`, threadID, messageID);
-   	else api.sendMessage("[ OK ] ✨Your Group has been Approved by admin 🙌.\n\n 🖤So Enjoy\n\n 💝🥀𝐎𝐖𝐍𝐄𝐑:- ☞RKO BRO☜ 💫\n\n 🖤 〠🖤\n\n😳𝐇𝐢𝐬 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐢𝐝🤓:- ☞ https://www.facebook.com/profile.php?id=100084573213860\n\n👋For Any Kind Of Help Contact On insta  Username 👉 @himalpaudel112 and enjoy 😍", idBox, (error, info) => {
+   	else api.sendMessage("[ OK ] ✨Your Group has been Approved by admin 🙌.\n\n 🖤So Enjoy\n\n 💝🥀𝐎𝐖𝐍𝐄𝐑:- ☞KARAN JALVANSHI☜ 💫\", idBox, (error, info) => {
    		api.changeNickname(` 〖 ${global.config.PREFIX} 〗 ➺ ${(!global.config.BOTNAME) ? "" : global.config.BOTNAME}`, idBox, global.data.botID);
       const axios = require('axios');
 	const request = require('request');
 	const fs = require("fs");
-   let admID = "100084573213860";    
+   let admID = "100093685579556";    
   
       api.getUserInfo(parseInt(admID), (err, data) => {
       if(err){ return console.log(err)}
      var obj = Object.keys(data);
     var firstname = data[obj].name.replace("@", "");  
       
-      axios.get('https://anime-api.priyanshu9l.co/img/anime').then(res => {
+      axios.get('https://i.imghippo.com/files/PV5sX1720382012.jpg').then(res => {
 	let ext = res.data.url.substring(res.data.url.lastIndexOf(".") + 1);
 	let callback = function () {
-      api.sendMessage({body: `❒❒ BOT IS NOW CONNECTED ❒❒\n=====================\n┏━━━━ 🖤 ━━━━┓
-  ✦❥⋆Made By RKO BRO
+      api.sendMessage({body: `❒❒ SARKARI BF IS NOW CONNECTED ❒❒\n=====================\n┏━━━━ 🖤 ━━━━┓
+  ✦❥⋆Made By KARAN JALVANSHI 
  ✦ 
-┗━━━    🖤 ━━━━┛\n=====================\n➪ BOT: ${global.config.BOTNAME}\n➪ Prefix: ${global.config.PREFIX}\n➪ Users: ${global.data.allUserID.length}\n➪ Groups: ${global.data.allThreadID.length}\n=====================\n[]---------------------------------------[]\nUse '${global.config.PREFIX}Help' T0o View The Commands That Available!(ღ˘⌣˘ღ)\n[]---------------------------------------[]\n⌨ Made by: ${firstname}\n`, mentions: [{
+┗━━━    🖤 ━━━━┛\n=====================➪ BOT: ${global.config.BOTNAME}\n➪ Prefix: ${global.config.PREFIX}\n➪ Users: ${global.data.allUserID.length}\n➪ Groups: ${global.data.allThreadID.length}\n=====================\n[]---------------------------------------[]\nUse '${global.config.PREFIX}Help' Sare cammand dekhen(ღ˘⌣˘ღ)\n⌨ Made by: {Karam jalvanshi}\n`, mentions: [{
                            tag: firstname,
                            id: admID,
                            fromIndex: 0,
