@@ -46,7 +46,7 @@ var userName = data[obj].name.replace("@", ""); 	if (userID !== api.getCurrentUs
 				memLength.push(participantIDs.length - i++);
 memLength.sort((a, b) => a - b);
 			
-			(typeof threadData.customJoin == "undefined") ? msg = "╔════•| ✿ |•════╗\n 🌿𝗛𝗲𝗹𝗹𝗼 🌿𝗙𝗿𝗶𝗲𝗻𝗱 🌿\n╚════•| ✿ |•════╝\n\n ✨🆆🅴🅻🅻 🅲🅾🅼🅴✨\n\n ❥𝐍𝐄𝐖~\n\n ~🇲‌🇪‌🇲‌🇧‌🇪‌🇷‌~\n\n [ {uName} ]\n\n༄ 𝗜𝗻 𝗢𝘂𝗿 𝗚𝗿𝗼𝘂𝗽✺࿐\n\n{threadName}\n\n 🥰🖤🌸𝗛𝗮𝗽𝗽𝘆🍀𝗘𝗻𝗷𝗼𝘆🍀—🌸🥀\n\n🥀🥀\n\n༄✺AAP IS GRUP KE {soThanhVien} MEMBER HO🥳 # ]࿐\n\n ╔╦══• •✠•❀•✠ • •══╦╗\n ♥ ═╩╝" : msg = threadData.customJoin;
+			(typeof threadData.customJoin == "undefined") ? msg = "» HELLO, {name},\n─────────────────\n AAP IS GROUP KI {soThanhVien}TH MEMBER HO GRUP KAA NAAM 「 {threadName} 」HAI \n\nBOT OWNER:「 KARAN JALVANSHI 」" : msg = threadData.customJoin;
 			msg = msg
 			.replace(/\{uName}/g, nameArray.join(', '))
 			.replace(/\{type}/g, (memLength.length > 1) ? 'you' : 'Friend')
