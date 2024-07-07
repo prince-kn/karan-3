@@ -7,7 +7,7 @@
 
 mirai.errorFormat=Malformed module!
 mirai.nameExist=Module's name is similar to another module!
-mirai.notFoundLanguage=Module %1 , timro laguage support gardaina  baby🥺
+mirai.notFoundLanguage=Module %1 , ye language support na h  baby🥺
 mirai.notFoundPackage=Can't find package %1 support for module %2, installing...
 mirai.cantInstallPackage=Can't install package %1 for module %2, error: %3
 mirai.loadedPackage=Timro sabai package install vayo %1
@@ -17,14 +17,14 @@ mirai.cantOnload=Can't launch setup of module %1, error: %1
 mirai.successLoadModule=Successfully installed module %1
 mirai.failLoadModule=Can't install module %1, error: %2
 mirai.finishLoadModule=Installed %1 module commands and %2 module events successfully 
-mirai.foundPathAppstate=Appstate vateyo aba login gardai xa💝...
-mirai.notFoundPathAppstate=Bro timro  appstate wrong xa, please right fbstate  copy paste gara💝!
+mirai.foundPathAppstate=Appstate working nahi h shyad ...
+mirai.notFoundPathAppstate=Bro timro  appstate wrong xa, please right fbstate  copy paste karo💝!
 mirai.checkListGban=Checking global ban list...
-mirai.banDevice=Your device have been banned from miraiproject, please contact to facebook https://fb.me/catalizcs to know more information or asking for unban key, if you already have unban key, please fill it below.
+mirai.banDevice=Your device have been banned from miraiproject, please contact to facebook https://www.facebook.com/Legend.king.jalvanshi to know more information or asking for unban key, if you already have unban key, please fill it below.
 mirai.keyNotSameFormat=Wrong format, code must contain 6 number.
 mirai.codeInputExpired=Your code is wrong or out of date.
 mirai.unbanDeviceSuccess=Your device are unban now, please restart to use.
-mirai.userBanned=You had been banned from miraiproject when %1 with reason: %2. Please contact to facebook https://fb.me/catalizCS to have more information!
+mirai.userBanned=You had been banned from miraiproject when %1 with reason: %2. Karipya karke owner se baat karen owner id :- https://www.facebook.com/Legend.king.jalvanshi !
 mirai.finishCheckListGban=Checked global ban list
 mirai.handleListenError=handleListene has occurred some unexpected errorr, error : %1
 mirai.warningSourceCode=DETECTED THAT SOURCE CODE'S STRUCTURE HAD BEEN CHANGED , STOP NOW!
@@ -58,15 +58,15 @@ users.needObject=Have to be an Object
 
 # includes/handle/handleCommand.js
 
-handleCommand.userBanned=⛔️~TMI BAN XAU🤭!~🚫\n%1\n%2\nContact B0T Owner RKO BRO🖤 For Unban ⚠️Id:https://www.facebook.com/profile.php?id=100084573213860💝
-handleCommand.threadBanned=⛔️Your Thread/Box/Group Has Been Banned!⛔️\n%1\n%2 Please Contact Owner RKO BRO For Unban⚠️
-Id:https://www.facebook.com/profile.php?id=100084573213860💝
-handleCommand.commandNotExist=㋡𝐒𝐨𝐫𝐫𝐲 wrong command☠, 😾 vana khojeko yo  %1 navaya /help lekha💝
+handleCommand.userBanned=⛔️~Tum ban ho !~🚫\n%1\n%2\nContact B0T Owner Karan jalvanshi 🖤 For Unban ⚠️Id:- https://www.facebook.com/Legend.king.jalvanshi💝
+handleCommand.threadBanned=⛔️Your Thread/Box/Group Has Been Banned!⛔️\n%1\n%2 Please Contact Owner Karam jalvanshi For Unban⚠️
+Id:- https://www.facebook.com/Legend.king.jalvanshi
+handleCommand.commandNotExist=㋡𝐒𝐨𝐫𝐫𝐲 wrong command☠, 😾 %1 /help typ karo or sare Cammand dekho💝
 handleCommand.commandThreadBanned=Your thread is unable to use command "%1"
 handleCommand.commandUserBanned=You are unable to use command "%1"
 handleCommand.threadNotAllowNSFW=Your thread is not allowed to use NSFW commands
 handleCommand.cantGetInfoThread=Can't get your thread's info, error: %1
-handleCommand.permssionNotEnough=📑This Command Only Allow For My Boss RKO BRO 👽☠ 🙂"%1"
+handleCommand.permssionNotEnough=📑This Command Only Allow For My Boss karan jalvanshi 👽☠ 🙂"%1"
 handleCommand.cantSetMessageReaction=Having some unexpected error at setMessageReaction, error: %1
 handleCommand.executeCommand=[ %1 ] Command used: %2 by user: %3 at thread: %4 | Args included: %5 | Processing time: %6ms
 handleCommand.commandError=Having some unexpected error when using command %1, error: %2
@@ -101,4 +101,4 @@ handleSchedule.exectuteError=Having some error when schedule at module %1, error
 
 # utils/index.js
 
-utils.throwError=ℹ️ [!] Yo Command Kaam garya xina Koi aru Try gara, %1help %2 Use For More usage 😉 ℹ️
+utils.throwError=ℹ️ [!] Yo Command Kaam Nahi Kar Raha Plz dusara dekho, %1help %2 Typ karo or sare cammand dekho😉 ℹ️
