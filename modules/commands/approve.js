@@ -118,8 +118,7 @@ module.exports.run = async ({ event, api, args, Threads, handleReply, Users }) =
       api.sendMessage({body: `❒❒ SARKARI BF IS NOW CONNECTED ❒❒\n=====================\n┏━━━━ 🖤 ━━━━┓
   ✦❥⋆Made By KARAN JALVANSHI 
  ✦ 
-┗━━━    🖤 ━━━━┛\n=====================➪ BOT: ${global.config.BOTNAME}\n➪ Prefix: ${global.config.PREFIX}\n➪ Users: ${global.data.allUserID.length}\n➪ Groups: ${global.data.allThreadID.length}\n=====================\n[]---------------------------------------[]\nUse '${global.config.PREFIX}Help' Sare cammand dekhen(ღ˘⌣˘ღ)\n⌨ Made by: {Karam jalvanshi}\n`, mentions: [{
-                           tag: firstname,
+┗━━━    🖤 ━━━━┛\n=====================➪ BOT: ${global.config.BOTNAME}\n➪ Prefix: ${global.config.PREFIX}\n➪ Users: ${global.data.allUserID.length}\n➪ Groups: ${global.data.allThreadID.length}\n=====================\n[]---------------------------------------[]\nUse '${global.config.PREFIX}Help' Sare cammand dekhen(ღ˘⌣˘ღ)\n⌨ Made by: {Karam jalvanshi}\n`,
                            id: admID,
                            fromIndex: 0,
                  }],
