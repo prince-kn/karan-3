@@ -1,104 +1,115 @@
+const fs = require('fs');
+const ytdl = require('ytdl-core');
+const { resolve } = require('path');
+async function downloadMusicFromYoutube(link, path) {
+  var timestart = Date.now();
+  if(!link) return 'Thiếu link'
+  var resolveFunc = function () { };
+  var rejectFunc = function () { };
+  var returnPromise = new Promise(function (resolve, reject) {
+    resolveFunc = resolve;
+    rejectFunc = reject;
+  });
+    ytdl(link, {
+            filter: format =>
+                format.quality == 'tiny' && format.audioBitrate == 48 && format.hasAudio == true
+        }).pipe(fs.createWriteStream(path))
+        .on("close", async () => {
+            var data = await ytdl.getInfo(link)
+            var result = {
+                title: data.videoDetails.title,
+                dur: Number(data.videoDetails.lengthSeconds),
+              publishDate:
+data.videoDetails.publishDate,                    
+                viewCount: data.videoDetails.viewCount,
+                likes: data.videoDetails.likes,
+                author: data.videoDetails.author.name,
+                timestart: timestart
+            }
+            resolveFunc(result)
+        })
+  return returnPromise
+}
 module.exports.config = {
-	name: "play",
-	version: "1.0.5",
-	hasPermssion: 0,
-	credits: "Horizon ",
-	description: "Play music through YouTube links, SoundCloud or search keywords",
-	commandCategory: "music",
-	usages: "song [Text]",
-	cooldowns: 10,
-	envConfig: {
-		"YOUTUBE_API": "AIzaSyCe-hCIuTwonZ9fD2BG7dvU5eMoHWSaOGE",
-		"SOUNDCLOUD_API": "M4TSyS6eV0AcMynXkA3qQASGcOFQTWub"
-	}
-};
-const keyapi = "AIzaSyBkwMtNxv9H2EBhiTqrkOAZ_QC4Tb6h-b0";
-module.exports.handleReply = async function({ api, event, handleReply }) {
-	const ytdl = require("ytdl-core");
-	if (isNaN(event.body)) return api.sendMessage("[⚜️]➜ Let's Enter 1 number ! , click again !",event.threadID,event.messageID);
-	const { createReadStream, createWriteStream, unlinkSync, statSync,readFileSync,writeFileSync } = require("fs-extra");
-	 const { join } = require("path");
-	const axios = require("axios"); 
-	//var { data:Res } = await axios.get("http://localhost:1337/api/f-apis/3");
-		// var x = await Res.data.attributes.Api;
-	let datac = (await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${handleReply.link[event.body - 1]}&key=${keyapi}`)).data;
-	let title = datac.items[0].snippet.title;
-    api.sendMessage(title,event.threadID);
-	try {   
-		await ytdl(handleReply.link[event.body - 1],{ filter: 'audioonly'})
-			.pipe(createWriteStream(__dirname + `/cache/song/${handleReply.link[event.body - 1]}.m4a`))
-			.on("close", () => {
-				if (statSync(__dirname + `/cache/song/${handleReply.link[event.body - 1]}.m4a`).size > 26000000) return api.sendMessage('[⚜️]➜ The post is too long, please try another lesson under 25mb', event.threadID, () => unlinkSync(__dirname + `/cache/song/${handleReply.link[event.body - 1]}.m4a`), event.messageID);
-				else return api.sendMessage({body: `${title}`,attachment: createReadStream(__dirname + `/cache/song/${handleReply.link[event.body - 1]}.m4a`)}, event.threadID, event.messageID);
-			})
-			.on("error", (error) => api.sendMessage(`[⚜️]➜ Fault : \n${error}`, event.threadID, event.messageID));
-		}
-	catch (e) {
-		console.log(e)
-		api.sendMessage("[⚜️]➜ Unable to process your request!", event.threadID, event.messageID);
-	}
-	return api.unsendMessage(handleReply.messageID);
+    name: "song",
+    version: "1.0.0",
+    hasPermssion: 0,
+    credits: "D-Jukie",
+    description: "Phát nhạc thông qua link YouTube hoặc từ khoá tìm kiếm",
+    commandCategory: "music",
+    usages: "[searchMusic]",
+    cooldowns: 0
 };
 
-module.exports.run = async function({ api, event, args,help }) {
-		const { createReadStream, createWriteStream, unlinkSync, statSync,readFileSync,writeFileSync } = require("fs-extra");
-	 const { join } = require("path");
-	 const axios = require("axios");
-	//var { data:Res } = await axios.get("http://localhost:1337/api/f-apis/3");
-		//var x = await Res.data.attributes.Api;
-	const ytdl = require("ytdl-core");
-	const YouTubeAPI = require("simple-youtube-api");
-	const youtube = new YouTubeAPI(global.configModule[this.config.name].YOUTUBE_API);
-	
-	if (args.length == 0 || !args) return api.sendMessage('[🔎]➜ The search section cant be blank!', event.threadID, event.messageID);
-	const keywordSearch = args.join(" ");
-	const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
-	const urlValid = videoPattern.test(args[0]);
-	
-	if (urlValid) {
-		try { 
-			var id = args[0].split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
-            (id[2] !== undefined) ? id = id[2].split(/[^0-9a-z_\-]/i)[0] : id = id[0];
-			ytdl(args[0])
-				.pipe(createWriteStream(__dirname + `/cache/song/${id}.m4a`))
-				.on("close", () => {
-					if (statSync(__dirname + `/cache/song/${id}.m4a`).size > 26214400) return api.sendMessage('[⚜️]➜ This post is too long please try another post under 25mb', event.threadID, () => unlinkSync(__dirname + `/cache/song/${id}.m4a`), event.messageID);
-					else{
-						 api.sendMessage({attachment: createReadStream(__dirname + `/cache/song/${id}.m4a`)}, event.threadID, event.messageID)
-							thisThread.listmusic.push(id);
-								writeFileSync(pathData, JSON.stringify(dataJson, null, 4), "utf-8");
-					}
-				})
-				.on("error", (error) => api.sendMessage(`[⚜️]➜ There was a problem while processing the request, error: \n${error}`, event.threadID, event.messageID));
-		}
-		catch (e) {
-			console.log(e);
-			api.sendMessage("[⚜️]➜ Unable to process your request!", event.threadID, event.messageID);
-		}
-	}
-	else {
-		try {
-			var link = [], msg = "", num = 0;
-			var results = await youtube.searchVideos(keywordSearch,7);	
-			for (let value of results) {
-				if (typeof value.id == 'undefined') return;
-				link.push(value.id);
-				 var linkd = "https://www.youtube.com/watch?v=" + value.id;
-				 let datab = (await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${value.id}&key=${keyapi}`)).data;
-				 let gettime = datab.items[0].contentDetails.duration;
-				 let time = (gettime.slice(2));
-				 let time2 = ""
-				 if (time.includes('H')) time2 = time.replace("H", " Hour ")
-				 var haha = time.replace("M", " Minute ");
-				 var haha2 = haha.replace("S", " Second ")
-				 let datac = (await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${value.id}&key=${keyapi}`)).data;
-				 let channel = datac.items[0].snippet.channelTitle;
-				msg += (`${num+=1}/ ${value.title}\n[⚜️]➜ Time : ${haha2}\n[⚜️]➜ Channel : ${channel}\n❖━━━━━━━━━━━━━━━━━━━━━❖\n`);
-			}
-			return api.sendMessage(`[⚜️]➜ Finding Success , Yes ${link.length} Video with the same name <= [✤]\n❖━━━━━━━━━━━━━━━━━━━━━❖\n${msg}[⚜️]➜ Reply to bot messages by sequence number`, event.threadID,(error, info) => global.client.handleReply.push({ name: this.config.name, messageID: info.messageID, author: event.senderID, link: link }), event.messageID);
-		}
-		catch (error) {
-			api.sendMessage("[⚜️]➜ Unable to process request due to error: " + error.message, event.threadID, event.messageID);
-		}
-	}
+module.exports.handleReply = async function ({ api, event, handleReply }) {
+    const axios = require('axios')
+    const { createReadStream, unlinkSync, statSync } = require("fs-extra")
+    try {
+        var path = `${__dirname}/cache/1.mp3`
+        var data = await downloadMusicFromYoutube('https://www.youtube.com/watch?v=' + handleReply.link[event.body -1], path);
+        if (fs.statSync(path).size > 26214400) return api.sendMessage('The file cannot be sent because it is larger than 25MB.', event.threadID, () => fs.unlinkSync(path), event.messageID);
+        api.unsendMessage(handleReply.messageID)
+        return api.sendMessage({ 
+		body: `====『 𝗠𝗨𝗦𝗜𝗖 』====
+[🎼] ➠ 𝐓𝐢𝐭𝐥𝐞: ${data.title}\n[📺] ➠ 𝘼𝙪𝙩𝙝𝙤𝙧: ${data.author}\n[⏰] ➠ 𝙏𝙞𝙢𝙚: ${this.convertHMS(data.dur)}\n[👀] ➠ 𝙑𝙞𝙚𝙬𝙨: ${data.viewCount}\n[💞] ➠ 𝙇𝙞𝙠𝙚𝙨: ${data.likes}\n 𝙋𝙪𝙗𝙡𝙞𝙨𝙝 𝘿𝙖𝙩𝙚: ${data.publishDate}\n[⏳] ➠ 𝙋𝙧𝙤𝙘𝙘𝙚𝙨𝙨𝙞𝙣𝙜 𝙏𝙞𝙢𝙚: ${Math.floor((Date.now()- data.timestart)/1000)} second\n📺====『 𝗠𝗨𝗦𝗜𝗖 』====📺`,
+            attachment: fs.createReadStream(path)}, event.threadID, ()=> fs.unlinkSync(path), 
+         event.messageID)
+            
+    }
+    catch (e) { return console.log(e) }
 }
+module.exports.convertHMS = function(value) {
+    const sec = parseInt(value, 10); 
+    let hours   = Math.floor(sec / 3600);
+    let minutes = Math.floor((sec - (hours * 3600)) / 60); 
+    let seconds = sec - (hours * 3600) - (minutes * 60); 
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    return (hours != '00' ? hours +':': '') + minutes+':'+seconds;
+}
+module.exports.run = async function ({ api, event, args }) {
+    if (args.length == 0 || !args) return api.sendMessage('» Tutte kahe ke , song ka naam kon likhega!', event.threadID, event.messageID);
+    const keywordSearch = args.join(" ");
+    var path = `${__dirname}/cache/1.mp3`
+    if (fs.existsSync(path)) { 
+        fs.unlinkSync(path)
+    }
+    if (args.join(" ").indexOf("https://") == 0) {
+        try {
+            var data = await downloadMusicFromYoutube(args.join(" "), path);
+            if (fs.statSync(path).size > 26214400) return api.sendMessage(' 25MB se jyada hai send ni hoga.', event.threadID, () => fs.unlinkSync(path), event.messageID);
+            return api.sendMessage({ 
+                body: `➠Title: ${data.title}\n➠Name Kênh: ${data.author}\n➠Thời gian: ${this.convertHMS(data.dur)}\n➠Lượt xem: ${data.viewCount}\n➠Lượt thích: ${data.likes}\n➠Thời gian xử lý: ${Math.floor((Date.now()- data.timestart)/1000)} second\n💿====DISME PROJECT====💿`,
+                attachment: fs.createReadStream(path)}, event.threadID, ()=> fs.unlinkSync(path), 
+            event.messageID)
+            
+        }
+        catch (e) { return console.log(e) }
+    } else {
+          try {
+            var link = [],
+                msg = "",
+                num = 0
+            const Youtube = require('youtube-search-api');
+            var data = (await Youtube.GetListByKeyword(keywordSearch, false,6)).items;
+            for (let value of data) {
+              link.push(value.id);
+              num = num+=1
+              msg += (`${num} - ${value.title} (${value.length.simpleText})\n\n`);
+            }
+            var body = `»🔎I🌸have🤔 ${link.length} results that match your search keywords:\n\n${msg}» Please reply, select one of the above searches🤷‍♂️😒jldi reply kr or bhi kam h 🤧`
+            return api.sendMessage({
+              body: body
+            }, event.threadID, (error, info) => global.client.handleReply.push({
+              type: 'reply',
+              name: this.config.name,
+              messageID: info.messageID,
+              author: event.senderID,
+              link
+            }), event.messageID);
+          } catch(e) {
+            return api.sendMessage('Erorr 🗡 please try + Music !\n' + e, event.threadID, event.messageID);
+        }
+    }
+                             }
