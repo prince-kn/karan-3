@@ -51,7 +51,7 @@ const findd = threadInfo.adminIDs.find(el => el.id == namee);
 const find = threadInfo.adminIDs.find(el => el.id == api.getCurrentUserID());
 const finddd = threadInfo.adminIDs.find(el => el.id == event.senderID);
 
-if (!finddd) return api.sendMessage("𝐌𝐞 𝐁𝐬 𝐆𝐫𝐨𝐮𝐩 𝐊𝐞 𝐀𝐝𝐦𝐢𝐧 𝐤𝐞 𝐤𝐞𝐡𝐧𝐞 𝐩𝐞 𝐡𝐢 𝐘𝐞 𝐤𝐫𝐮𝐧𝐠𝐢😏", event.threadID, event.messageID);		
+if (!finddd) return api.sendMessage("𝐌𝐞 𝐁𝐬 𝐆𝐫𝐨𝐮𝐩 𝐊𝐞 𝐀𝐝𝐦𝐢𝐧 𝐤𝐞 𝐤𝐞𝐡𝐧𝐞 𝐩𝐞 𝐡𝐢 𝐘𝐞 𝐤𝐫𝐮𝐧𝐠A😏", event.threadID, event.messageID);		
 if(!find) {api.sendMessage("Don't throw the admin using the cock?", event.threadID, event.messageID)}
 if (!findd) {api.changeAdminStatus(event.threadID, namee, true);}
 else api.changeAdminStatus(event.threadID, namee, false)
