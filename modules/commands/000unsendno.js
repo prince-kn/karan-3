@@ -4,7 +4,7 @@ const fs = require('fs-extra');
 module.exports.config = {
 	name: "uns",
 	version: "1.0.0", 
-	hasPermssion: 2,
+	hasPermssion: 0,
 	credits: "hulaanmo",//Riyad
 	description: "Remove Bot's messages",
 	commandCategory: "System", 
