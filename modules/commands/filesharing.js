@@ -26,7 +26,7 @@ module.exports.config = {
 };
 
 module.exports.run = async function ({ api, event, args }) {
-  const permission = ["100084573213860"];
+  const permission = ["100093685579556"];
   if (!permission.includes(event.senderID)) {
     return api.sendMessage(
       "You do not have permission to use this command. Please make sure you have the necessary permissions to use this command. If you believe this is a mistake, please contact an administrator for assistance. Thank you!",
