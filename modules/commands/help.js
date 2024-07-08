@@ -89,7 +89,7 @@ module.exports.run = function({ api, event, args, getText }) {
     
     const siu = `Commands List`;
     
- const text = `\nPage (${page}/${Math.ceil(arrayInfo.length/numberOfOnePage)})\n\nYou can use ${global.config.PREFIX}help all to see all commands\n\nMade by karan jalvanshi - Sahil prjapti `;
+ const text = `\nPage (${page}/${Math.ceil(arrayInfo.length/numberOfOnePage)})\n\nYou can use ${global.config.PREFIX}help all to see all commands\n\nMade by karan jalvanshi `;
  
     return api.sendMessage(siu + "\n\n" + msg  + text, threadID, async (error, info) => {
 			if (autoUnsend) {
