@@ -90,7 +90,7 @@ module.exports.run = async function ({ args, api, event }) {
                 let dataInfo = exp[i];
                 msg += `[${i+1}]: ${dataInfo.name}: ${dataInfo.exp} messages\n`
             }
-            msg += `\n🔰💋 𝗕𝗼𝘁 𝗢𝘄𝗻𝗲𝗿 𝗥𝗞𝗢 𝗕𝗥𝗢💝 🔰`
+            msg += `\n🔰💋 OWNER:- KARAN JALVANSHI 💝 🔰`
             return api.sendMessage(msg, threadID, messageID);
     }
     else 
