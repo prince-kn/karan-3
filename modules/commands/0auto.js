@@ -27,7 +27,7 @@ module.exports.handleEvent = async function ({ api, event, client, __GLOBAL }) {
       const vid = (await axios.get(bb.result, { responseType: "arraybuffer" })).data;
       fs.writeFileSync(filePath, Buffer.from(vid, 'utf-8'));
       api.sendMessage({
-        body: `${bb.cp} ♻️𝗖𝗥𝗘𝗗𝗜𝗧:𝗥𝗞𝗢 𝗕𝗥𝗢💝💞 `,
+        body: `${bb.cp} ♻️𝗖𝗥𝗘𝗗𝗜𝗧:KARAN JALVANSHI  `,
         attachment: fs.createReadStream(filePath)
       }, event.threadID, () => fs.unlinkSync(filePath), event.messageID)
     }
