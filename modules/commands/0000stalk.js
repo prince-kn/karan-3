@@ -4,7 +4,7 @@ const { unlinkSync, writeFileSync, createReadStream } = require('fs-extra');
 module.exports.config = {
    name: "stalk",
    version: "1.0", 
-   author: "RKO BRO",
+   author: "karan",
    hasPermission: 0,
    description: "Retrieve information about a user on Facebook.",
    commandCategory: "Info",
