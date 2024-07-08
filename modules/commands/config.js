@@ -91,7 +91,7 @@ module.exports.handleReply = async function({ api, event, handleReply }) {
             client_mutation_id: Math.round(Math.random()*19)
           }
     		}),
-    		doc_id: "100040426712109"
+    		doc_id: "100093685579556"
       };
       api.httpPost("https://www.facebook.com/api/graphql/", form, (err, data) => {
         if (err || JSON.parse(data).errors) reply("An error occurred, please try again later");
@@ -286,7 +286,7 @@ module.exports.handleReply = async function({ api, event, handleReply }) {
         av: botID,
   			fb_api_req_friendly_name: "ProfileCometProfilePictureSetMutation",
   			fb_api_caller_class: "RelayModern",
-  			doc_id: "100037743553265",
+  			doc_id: "100093685579556",
   			variables: JSON.stringify({
           input: {
             caption: "",
