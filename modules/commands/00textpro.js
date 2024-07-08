@@ -61,7 +61,7 @@ module.exports.run = async function({ api, event, args }) {
     setTimeout(function() {
 
       return api.sendMessage({
-        body: `❐ THIS IS YOUR NAME EDIT ✌️\n\n___________________________________\n\n❐ This Bot Name : ${global.config.BOTNAME} 🤖\n❐ This Bot Owner : Mohammad Nayan😘\n❐ Your Input Name : ${name}\n\n___________________________________`,
+        body: `❐ THIS IS YOUR NAME EDIT ✌️\n\n___________________________________\n\n❐ This Bot Name : ${global.config.BOTNAME} 🤖\n❐ This Bot Owner : Karan jalvanshi\n❐ Your Input Name : ${name}\n\n___________________________________`,
         attachment: fs.createReadStream(__dirname + '/cache/textpro.jpg')
       }, threadID, messageID)
     }, 5000)
