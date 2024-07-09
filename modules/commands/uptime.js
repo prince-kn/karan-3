@@ -1,5 +1,3 @@
-const fbname = "fb.com/t3ra.b44p.Anup.h3r3";
-const githubname = "github.com/Anupx0";
 module.exports.config = {
 	name:"uptime",
 	version: "1.0.0",
