@@ -3,7 +3,7 @@ module.exports.config = {
   name: "gfx6",
   version: "1.0.1",
   hasPermssion: 0,
-  credits: `${dek} (fix by Siegfried Sama)`,
+  credits: `${dek} (karan jalvanshi )`,
   description: "gfx banner",
   commandCategory: "banner",
   usages: "text",
