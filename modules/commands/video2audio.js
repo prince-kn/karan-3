@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "video2a",
+  name: "video2audio",
   version: "1.0.",
   hasPermssion: 0,
   credits: "jameslim",
