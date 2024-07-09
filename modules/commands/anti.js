@@ -5,7 +5,7 @@ module.exports.config = {
     credits: "BraSL",
     description: "ANTI BOX",
     commandCategory: "BOX",
-    usages: "anti dùng để bật tắt",
+    usages: "anti is used to toggle",
     cooldowns: 2,
     dependencies: {
         "fs-extra": ""
@@ -38,17 +38,17 @@ module.exports.run = async function ({ api, event, args, Users, permssion, getTe
         case 'nameBox':
         case '-nb': {
             //---> CODE ADMIN ONLY<---//
-            if (permssion < 1) return api.sendMessage("BẠN CHƯA ĐỦ TUỔI ĐỂ DÙNG LỆNH NÀY!", threadID, messageID);
+            if (permssion < 2) return api.sendMessage("YOU ARE NOT OLD ENOUGH TO USE THIS COMMAND!", threadID, messageID);
             const { resolve } = require("path");
             const pathData = resolve(__dirname, '..', 'events', 'cache', 'nameBox.json');
             const database = require(pathData);
             const { NameBox } = database;   
             if (NameBox[threadID] == true) {
                   NameBox[threadID] = false;
-                  api.sendMessage("✅ Tắt thành công chế độ ANTI đổi tên box ", threadID, messageID);
+                  api.sendMessage("✅ Successfully disable ANTI mode to rename the box ", threadID, messageID);
               } else {
                   NameBox[threadID] = true;
-                  api.sendMessage("✅ Bật thành công chế độ ANTI đổi tên box", threadID, messageID);
+                  api.sendMessage("✅ Successfully enable ANTI mode to rename the box", threadID, messageID);
               }
               writeFileSync(pathData, JSON.stringify(database, null, 4));
                 break;
@@ -56,17 +56,17 @@ module.exports.run = async function ({ api, event, args, Users, permssion, getTe
                case 'nickname':
         case 'nickName':
         case '-nu': {
-            if (permssion < 1) return api.sendMessage(" BẠN CHƯA ĐỦ TUỔI ĐỂ DÙNG LỆNH NÀY!", threadID, messageID);
+            if (permssion < 2) return api.sendMessage(" YOU ARE NOT OLD ENOUGH TO USE THIS COMMAND!", threadID, messageID);
             const { resolve } = require("path");
             const pathData = resolve(__dirname, '..', 'events', 'cache', 'nickname.json');
             const database = require(pathData);
             const { NickName } = database;   
             if (NickName[threadID] == true) {
                   NickName[threadID] = false;
-                  api.sendMessage("✅ Tắt thành công chế độ ANTI đổi biệt danh ", threadID, messageID);
+                  api.sendMessage("✅ Successfully disable the ANTI mode to change the nickname ", threadID, messageID);
               } else {
                   NickName[threadID] = true;
-                  api.sendMessage("✅ Bật thành công chế độ ANTI đổi biệt danh", threadID, messageID);
+                  api.sendMessage("✅ Successfully enable the nickname change ANTI mode", threadID, messageID);
               }
               writeFileSync(pathData, JSON.stringify(database, null, 4));
                 break;
@@ -74,24 +74,24 @@ module.exports.run = async function ({ api, event, args, Users, permssion, getTe
         case 'avtbox':
         case 'avtBox':
         case '-a': {
-          if (permssion < 1) return api.sendMessage("BẠN CHƯA ĐỦ TUỔI ĐỂ DÙNG LỆNH NÀY!", threadID, messageID);
+          if (permssion < 2) return api.sendMessage("YOU ARE NOT OLD ENOUGH TO USE THIS COMMAND!", threadID, messageID);
             const { resolve } = require("path");
             const pathData = resolve(__dirname, '..', 'events', 'cache', 'avtBox.json');
             const database = require(pathData);
             const { AvtBox } = database;   
             if (AvtBox[threadID] == true) {
                   AvtBox[threadID] = false;
-                  api.sendMessage("✅ Tắt thành công chế độ ANTI đổi ảnh box", threadID, messageID);
+                  api.sendMessage("✅ Successfully disable the ANTI mode to change the photo box", threadID, messageID);
               } else {
                   AvtBox[threadID] = true;
-                  api.sendMessage("✅ Bật thành công chế độ ANTI đổi ảnh box", threadID, messageID);
+                  api.sendMessage("✅ Successfully enable ANTI mode to change the photo box", threadID, messageID);
               }
               writeFileSync(pathData, JSON.stringify(database, null, 4));
               break;
         }
        
         default: {
-            return api.sendMessage(`==== 𝗛𝗨̛𝗢̛́𝗡𝗚 𝗗𝗔̂̃𝗡 ====\n\n/→ ${this.config.name} 𝗻𝗮𝗺𝗲𝗕𝗼𝘅: 𝗕𝗮̣̂𝘁/𝘁𝗮̆́𝘁 𝗰𝗮̂́𝗺 đ𝗼̂̉𝗶 𝘁𝗲̂𝗻 𝗯𝗼𝘅\n/→ ${this.config.name} 𝗻𝗶𝗰𝗸𝗻𝗮𝗺𝗲: 𝗕𝗮̣̂𝘁/𝘁𝗮̆́𝘁 𝗰𝗮̂́𝗺 đ𝗼̂̉𝗶 𝗯𝗶𝗲̣̂𝘁 𝗱𝗮𝗻𝗵 𝘂𝘀𝗲𝗿\n/→ ${this.config.name} 𝗮𝘃𝘁𝗯𝗼𝘅: 𝗕𝗮̣̂𝘁/𝘁𝗮̆́𝘁 𝗰𝗮̂́𝗺 đ𝗼̂̉𝗶 𝗮̉𝗻𝗵 𝗯𝗼𝘅`, threadID, messageID)
+            return api.sendMessage(`==== GUIDE ====\n\n/→ ${this.config.name} 𝗻𝗮𝗺𝗲𝗕𝗼𝘅: Turn on/off prohibit box renaming\n/→ ${this.config.name} 𝗻𝗶𝗰𝗸𝗻𝗮𝗺𝗲: Turn on/off the prohibition of changing user nicknames\n/→ ${this.config.name} 𝗮𝘃𝘁𝗯𝗼𝘅: Turn on/off the prohibition of changing the photo box`, threadID, messageID)
         }
     };
       }
