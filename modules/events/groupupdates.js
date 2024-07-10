@@ -47,30 +47,30 @@ module.exports.run = async function ({ event, api, Threads, Users }) {
             case "log:thread-admins": {
                 if (logMessageData.ADMIN_EVENT == "add_admin") {
                     dataThread.adminIDs.push({ id: logMessageData.TARGET_ID })
-                    api.sendMessage(`[⚜️] 𝙉𝙚𝙬 𝘼𝙘𝙩𝙞𝙫𝙞𝙩𝙮 [⚜️]\n» 𝙉𝙚𝙬 𝘼𝙙𝙢𝙞𝙣 \n\n𝚈𝚎 ${logMessageData.TARGET_ID} 𝙰𝚋𝚜`, threadID);
+                    api.sendMessage(`[ 𝗚𝗥𝗢𝗨𝗣 𝗨𝗣𝗗𝗔𝗧𝗘 ]\n» 𝙉𝙚𝙬 𝘼𝙙𝙢𝙞𝙣 \n\n𝚈𝚎 ${logMessageData.TARGET_ID} 𝙰𝚋𝚜`, threadID);
                 }
                 else if (logMessageData.ADMIN_EVENT == "remove_admin") {
                     dataThread.adminIDs = dataThread.adminIDs.filter(item => item.id != logMessageData.TARGET_ID);
-                    api.sendMessage(`[⚜️] 𝙉𝙚𝙬 𝘼𝙘𝙩𝙞𝙫𝙞𝙩𝙮 [⚜️]\n» has been removed as admin ${logMessageData.TARGET_ID} yh`, threadID);
+                    api.sendMessage(`» has been removed as admin ${logMessageData.TARGET_ID} yh`, threadID);
                 }
                 break;
             }
 
             case "log:user-nickname": {
                 dataThread.nicknames[logMessageData.participant_id] = logMessageData.nickname;
-                api.sendMessage(`[⚜️] 𝙉𝙚𝙬 𝘼𝙘𝙩𝙞𝙫𝙞𝙩𝙮 [⚜️]\n» ${(logMessageData.nickname.length == 0) ? `TO REMOVE USER'S NAME ${logMessageData.participant_id}` : `FOR UPDATE USER'S nicknames ${logMessageData.participant_id} WALL: ${logMessageData.nickname}`}.`, threadID);
+                api.sendMessage(`[ 𝗚𝗥𝗢𝗨𝗣 𝗨𝗣𝗗𝗔𝗧𝗘 ]\n» ${(logMessageData.nickname.length == 0) ? `TO REMOVE USER'S NAME ${logMessageData.participant_id}` : `FOR UPDATE USER'S nicknames ${logMessageData.participant_id} WALL: ${logMessageData.nickname}`}.`, threadID);
                 break;
             }
 
             case "log:thread-name": {
                 dataThread.threadName = event.logMessageData.name || null;
-                api.sendMessage(`[⚜️] 𝙉𝙚𝙬 𝘼𝙘𝙩𝙞𝙫𝙞𝙩𝙮 [⚜️]\n» ${(dataThread.threadName) ? `FOR UPDATE GROUP NAME OF SMALL: ${dataThread.threadName}` : 'TO REMOVE GROUP NAME'}.`, threadID);
+                api.sendMessage(`[ 𝗚𝗥𝗢𝗨𝗣 𝗨𝗣𝗗𝗔𝗧𝗘 ]\n» ${(dataThread.threadName) ? `FOR UPDATE GROUP NAME OF SMALL: ${dataThread.threadName}` : 'TO REMOVE GROUP NAME'}.`, threadID);
                 break;
             }
             case "log:thread-icon": {
             	let preIcon = JSON.parse(fs.readFileSync(iconPath));
             	dataThread.threadIcon = event.logMessageData.thread_icon || "👍";
-                if (global.configModule[this.config.name].sendNoti) api.sendMessage(`[⚜️] 𝙉𝙚𝙬 𝘼𝙘𝙩𝙞𝙫𝙞𝙩𝙮 [⚜️]\n»  ${event.logMessageBody.replace("emoticon", "icon")}\n» Original Icons: ${preIcon[threadID] || "unclear"}`, threadID, async (error, info) => {
+                if (global.configModule[this.config.name].sendNoti) api.sendMessage(`[ 𝗚𝗥𝗢𝗨𝗣 𝗨𝗣𝗗𝗔𝗧𝗘 ]\n»  ${event.logMessageBody.replace("emoticon", "icon")}\n» Original Icons: ${preIcon[threadID] || "unclear"}`, threadID, async (error, info) => {
                 	preIcon[threadID] = dataThread.threadIcon;
                 	fs.writeFileSync(iconPath, JSON.stringify(preIcon));
                     if (global.configModule[this.config.name].autoUnsend) {
@@ -84,7 +84,7 @@ module.exports.run = async function ({ event, api, Threads, Users }) {
             case "log:thread-call": {
                 if (logMessageData.event == "group_call_started") {
                     const name = await Users.getNameUser(logMessageData.caller_id);
-                    api.sendMessage(`[⚜️] 𝙉𝙚𝙬 𝘼𝙘𝙩𝙞𝙫𝙞𝙩𝙮 [⚜️]\n» ${name} STARTED A ${(logMessageData.video) ? 'VIDEO ' : ''}CALL.`, threadID);
+                    api.sendMessage(`[ 𝗚𝗥𝗢𝗨𝗣 𝗨𝗣𝗗𝗔𝗧𝗘 ]\n» ${name} STARTED A ${(logMessageData.video) ? 'VIDEO ' : ''}CALL.`, threadID);
                 }
                 else if (logMessageData.event == "group_call_ended") {
                     const callDuration = logMessageData.call_duration;
@@ -101,12 +101,12 @@ module.exports.run = async function ({ event, api, Threads, Users }) {
 
                     const timeFormat = `${hours}:${minutes}:${seconds}`;
 
-                    api.sendMessage(`[⚜️] 𝙉𝙚𝙬 𝘼𝙘𝙩𝙞𝙫𝙞𝙩𝙮 [⚜️]\n» ${(logMessageData.video) ? 'VIDEO ' : ''}CALL HAS ENDED.\n» CALL DURATION: ${timeFormat}`, threadID);
+                    api.sendMessage(`[ 𝗚𝗥𝗢𝗨𝗣 𝗨𝗣𝗗𝗔𝗧𝗘 ]\n» ${(logMessageData.video) ? 'VIDEO ' : ''}CALL HAS ENDED.\n» CALL DURATION: ${timeFormat}`, threadID);
                     
                 }
                 else if (logMessageData.joining_user) {
                     const name = await Users.getNameUser(logMessageData.joining_user);
-                    api.sendMessage(`[⚜️] 𝙉𝙚𝙬 𝘼𝙘𝙩𝙞𝙫𝙞𝙩𝙮 [⚜️]\n» ${name} JOINED THE ${(logMessageData.group_call_type == '1') ? 'VIDEO ' : ''}CALL.`, threadID);
+                    api.sendMessage(`[ 𝗚𝗥𝗢𝗨𝗣 𝗨𝗣𝗗𝗔𝗧𝗘 ]\n» ${name} JOINED THE ${(logMessageData.group_call_type == '1') ? 'VIDEO ' : ''}CALL.`, threadID);
                 }
                 break;
             }
@@ -131,7 +131,7 @@ module.exports.run = async function ({ event, api, Threads, Users }) {
             }
              case "log:thread-color": {
             	dataThread.threadColor = event.logMessageData.thread_color || "🌤";
-                if (global.configModule[this.config.name].sendNoti) api.sendMessage(`[⚜️] 𝙉𝙚𝙬 𝘼𝙘𝙩𝙞𝙫𝙞𝙩𝙮 [⚜️]\n»  ${event.logMessageBody.replace("Topic", "color")}`, threadID, async (error, info) => {
+                if (global.configModule[this.config.name].sendNoti) api.sendMessage(`[ 𝗚𝗥𝗢𝗨𝗣 𝗨𝗣𝗗𝗔𝗧𝗘 ]\n»  ${event.logMessageBody.replace("Topic", "color")}`, threadID, async (error, info) => {
                     if (global.configModule[this.config.name].autoUnsend) {
                         await new Promise(resolve => setTimeout(resolve, global.configModule[this.config.name].timeToUnsend * 1000));
                         return api.unsendMessage(info.messageID);
