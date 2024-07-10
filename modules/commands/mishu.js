@@ -4,7 +4,7 @@ const config = {
   name: "mishu",
   version: "1.0.0",
   hasPermission: 0,
-  credits: "𝙉𝘼𝙐𝙂𝙃𝙏𝙔 ツ",
+  credits: "karan jalvanshi",
   description: "[ 𝗠𝗶𝘀𝗵𝗮 𝗔𝙞 ]",
   commandCategory: "no prefix",
   usages: "𝘼𝙨𝙠 𝘼 𝙌𝙪𝙚𝙨𝙩𝙞𝙤𝙣 𝙁𝙧𝙤𝙢 𝗠𝗶𝘀𝗵𝗮 𝘼𝙞",
