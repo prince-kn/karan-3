@@ -8,7 +8,7 @@ module.exports = {
     name: "uptime",
     version: "1.0.0",
     hasPermssion: 2,
-    credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
+    credits: "karan jalvanshi ",
     description: "test",
     commandCategory: "box",
     usages: "test",
@@ -59,8 +59,8 @@ module.exports = {
       if (ping < 1000) {
         pingStatus = "✅| 𝖲𝗆𝗈𝗈𝗍𝗁 𝖲𝗒𝗌𝗍𝖾𝗆";
       }
-      const systemInfo = `♡   ∩_∩
- （„• ֊ •„)♡
+      const systemInfo = `SARKARI BOT INFO
+      
 ╭─∪∪────────────⟡
 │ 𝗨𝗣𝗧𝗜𝗠𝗘 𝗜𝗡𝗙𝗢
 ├───────────────⟡
