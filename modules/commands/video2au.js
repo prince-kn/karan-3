@@ -1,8 +1,8 @@
 module.exports.config = {
-  name: "video2audio",
+  name: "video2au",
   version: "1.0.",
   hasPermssion: 0,
-  credits: "jameslim",
+  credits: "karan jalvanshi",
   description: "video to audio",
   commandCategory: "other",
   usages: "< reply video >",
