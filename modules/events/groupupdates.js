@@ -2,7 +2,7 @@ module.exports.config = {
 	name: "adminUpdate",
 	eventType: ["log:thread-admins","log:thread-name", "log:user-nickname", "log:thread-call","log:thread-icon", "log:thread-color", "log:link-status", "log:magic-words", "log:thread-approval-mode", "log:thread-poll"],
 	version: "1.0.1",
-	credits: "MrTomXxX",
+	credits: "karan jalvanshi",
 	description: "Update group information quickly",
     envConfig: {
         autoUnsend: true,
