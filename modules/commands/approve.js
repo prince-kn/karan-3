@@ -2,15 +2,15 @@ module.exports.config = {
 	name: "approve",
 	version: "1.0.2",
 	hasPermssion: 2,
-	credits: "karan jalvanshi",
+	credits: "mod by karan jalvanshi",
 	description: "approve the gc using bots xD",
-	commandCategory: "Admin",
-    cooldowns: 1
+	commandCategory: "admin",
+    cooldowns: 5
 };
 
 
-const dataPath = __dirname + "/karan/approvedThreads.json";
-const dataPending = __dirname + "/karan/pendingdThreads.json";
+const dataPath = __dirname + "/cache/approvedThreads.json";
+const dataPending = __dirname + "/cache/pendingdThreads.json";
 const fs = require("fs");
 
 module.exports.onLoad = () => {
@@ -99,8 +99,8 @@ module.exports.run = async ({ event, api, args, Threads, handleReply, Users }) =
     	}, messageID)
     }
     else if (isNaN(parseInt(idBox))) api.sendMessage("[ ERR ] The ID you entered is not valid", threadID, messageID);
-    else if (data.includes(idBox)) api.sendMessage(`[ - ] ID ${idBox} pre-approved!`, threadID, messageID);
-   	else api.sendMessage("[ OK ] Your group has been approved by the admin", idBox, (error, info) => {
+    else if (data.includes(idBox)) api.sendMessage(`[ - ] ID ${idBox} Yo Group Pehelai approved xa!`, threadID, messageID);
+   	else api.sendMessage("[ OK ] ✨Your Group has been Approved by admin 🙌.\n\n 🖤So Enjoy💝🥀𝐎𝐖𝐍𝐄𝐑:- ☞Karan jalvanshi☜", idBox, (error, info) => {
    		api.changeNickname(` 〖 ${global.config.PREFIX} 〗 ➺ ${(!global.config.BOTNAME) ? "" : global.config.BOTNAME}`, idBox, global.data.botID);
       const axios = require('axios');
 	const request = require('request');
@@ -112,10 +112,13 @@ module.exports.run = async ({ event, api, args, Threads, handleReply, Users }) =
      var obj = Object.keys(data);
     var firstname = data[obj].name.replace("@", "");  
       
-      axios.get('https://api.satou-chan.xyz/api/endpoint/happy').then(res => {
+      axios.get('https://anime-api.priyanshu9l.co/img/anime').then(res => {
 	let ext = res.data.url.substring(res.data.url.lastIndexOf(".") + 1);
 	let callback = function () {
-      api.sendMessage({body: `❒❒ BOT ARE NOW CONNECTED ❒❒\n=====================\n⚠️Spamming the bot are strictly prohibited, If you want to spam accept the consequences!!⚠️\n=====================\n➪ BOT: ${global.config.BOTNAME}\n➪ Prefix: ${global.config.PREFIX}\n➪ Users: ${global.data.allUserID.length}\n➪ Groups: ${global.data.allThreadID.length}\n=====================\n[]---------------------------------------[]\nUse '${global.config.PREFIX}help' to view the commands that Available!\n[]---------------------------------------[]\n⌨ Made by: {Karan jalvanshi}\n`, mentions: [{
+      api.sendMessage({body: `❒❒ SARKARI-BF IS NOW CONNECTED ❒❒\n=====================\n┏━━━━ 🖤 ━━━━┓
+  ✦❥⋆Made By karan jalvanshi 
+ ✦ 
+┗━━━    🖤 ━━━━┛\n=====================\n➪ BOT: ${global.config.BOTNAME}\n➪ Prefix: ${global.config.PREFIX}\n➪ Users: ${global.data.allUserID.length}\n➪ Groups: ${global.data.allThreadID.length}\n=====================\n[]---------------------------------------[]\nUse '${global.config.PREFIX}Help' T0o View The Commands That Available!(ღ˘⌣˘ღ)\n[]---------------------------------------[]\n⌨ Made by: {Karan jalvanshi}\n`, mentions: [{
                            tag: firstname,
                            id: admID,
                            fromIndex: 0,
@@ -130,10 +133,10 @@ module.exports.run = async ({ event, api, args, Threads, handleReply, Users }) =
    		else {
    			data.push(idBox);
    			fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
-   			api.sendMessage(`[ OK ] Successfully approved the box:\n${idBox}`, threadID, () => {
+   			api.sendMessage(`[ OK ] Successfully Approved The Box (◕‿◕):\n${idBox}`, threadID, () => {
           dataP.splice(dataP.indexOf(idBox), 1);
     		fs.writeFileSync(dataPending, JSON.stringify(dataP, null, 2));
     	}, messageID)
         }
    	});
-          }
+  }
