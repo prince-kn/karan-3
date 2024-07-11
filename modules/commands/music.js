@@ -2,7 +2,7 @@ module.exports.config = {
   name: "music",
   version: "1.0.0",
   hasPermssion: 0,
-  credits: "Sʌʜɩɭ Cʜoudʜʌʀƴ❤️",
+  credits: "karan ",
   description: "Play music from youtube",
   commandCategory: "media",
   usages: "[title]",
