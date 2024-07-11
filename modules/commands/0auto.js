@@ -2,7 +2,7 @@ module.exports.config = {
   name: "autodl",
   version: "1.0.",
   hasPermission: 0,
-  credits: "RKO BRO",
+  credits: "Karan jalvanshi",
   description: "All Video Downloader",
   commandCategory: "Downloader",
   usages: "[video link]",
@@ -27,7 +27,7 @@ module.exports.handleEvent = async function ({ api, event, client, __GLOBAL }) {
       const vid = (await axios.get(bb.result, { responseType: "arraybuffer" })).data;
       fs.writeFileSync(filePath, Buffer.from(vid, 'utf-8'));
       api.sendMessage({
-        body: `${bb.cp} ❤️ APKA VIDEO AA GAYA ❤️ `,
+        body: `${bb.cp}`,
         attachment: fs.createReadStream(filePath)
       }, event.threadID, () => fs.unlinkSync(filePath), event.messageID)
     }
