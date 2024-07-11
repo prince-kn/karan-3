@@ -18,7 +18,7 @@ module.exports.handleEvent = function({ api, event, client, __GLOBAL }) {
 react.includes("Admin")) {
     var msg = {
         body: "★𝗢𝘄𝗻𝗲𝗿 + 𝗠𝗮𝗱𝗲 𝗕𝘆★\n\n✦❏NAME:- KARAN JALVANSHI - ❏Facebook name/Id link :(https://www.facebook.com/Legend.king.jalvanshi                               ❏BOT NAME [ SARKARI BF 😘  ❏Bot admin✦\n☞✦ KARAN JALVANSHI `",
-        attachment: fs.createReadStream(__dirname + `https://i.imgur.com/BywlKOm.jpeg`)
+        attachment: fs.createReadStream(__dirname + `/noprefix/https://i.imgur.com/BywlKOm.jpeg`)
       }
       api.sendMessage(msg, threadID, messageID);
     api.setMessageReaction("👑", event.messageID, (err) => {}, true)
