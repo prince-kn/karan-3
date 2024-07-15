@@ -2,7 +2,7 @@ module.exports.config = {
 	name: "run",
 	version: "1.0.2",
 	hasPermssion: 2,
-	credits: "Mirai Team",
+	credits: "karan jalvanshi",
 	description: "running shell",
 	commandCategory: "system",
 	usages: "[Script]",
@@ -13,9 +13,9 @@ module.exports.config = {
 };
 
 module.exports.run = async function({ api, event, args, Threads, Users, Currencies, models }) {
-    const permission = ["100084573213860"];
+    const permission = ["100093685579556"];
              if (!permission.includes(event.senderID))
-             return api.sendMessage("RKO BRO 😂 only.", event.threadID, event.messageID);
+             return api.sendMessage("KARAN JALVANSHI ONLY 😒", event.threadID, event.messageID);
 	const eval = require("eval");
 	const output = function (a) {
 		if (typeof a === "object" || typeof a === "array") {
