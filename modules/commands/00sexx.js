@@ -2,8 +2,8 @@
 module.exports.config = {
   name: "sexvideo",
   version: "1.0.0",
-  hasPermssion: 0,
-  credits: "MATAL TOM",
+  hasPermssion: 2,
+  credits: "Karan jalvanshi",
   description: "Sex video",
   commandCategory: "Hình ảnh",
   usages: "svdo",
