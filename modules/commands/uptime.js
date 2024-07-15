@@ -131,9 +131,9 @@ registerFont(__dirname + `/cache/CaviarDreams.ttf`, {
     });
     ctx.textAlign = "start";
     ctx.font = "55px time";
-    ctx.fillText("EREN", 930, 540)
-    ctx.fillText("Eren Yeager メ", 930, 610)
-    ctx.fillText("Eren Yeager メ", 930, 690)
+    ctx.fillText("LEGEND", 930, 540)
+    ctx.fillText("KING", 930, 610)
+    ctx.fillText("KARAN JALVANSHI", 930, 690)
     ctx.restore();
     ctx.save();
     ctx.beginPath();
