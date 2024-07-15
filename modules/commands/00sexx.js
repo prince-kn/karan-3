@@ -2,7 +2,7 @@
 module.exports.config = {
   name: "sexvideo",
   version: "1.0.0",
-  hasPermssion: 2,
+  hasPermssion: 0,
   credits: "MATAL TOM",
   description: "Sex video",
   commandCategory: "Hình ảnh",
@@ -19,7 +19,7 @@ module.exports.run = async({api,event,args,client,Users,Threads,__GLOBAL,Currenc
 const axios = global.nodemodule["axios"];
 const request = global.nodemodule["request"];
 const fs = global.nodemodule["fs-extra"];
-   var hi = ["--𝐒𝐄𝐗 𝐕𝐈𝐃𝐄𝐎 𝐁𝐘😇\n\n[» 𒄬 KARAN』"];
+   var hi = ["LE VIDEO DEKH OR MUTH MAR"];
   var know = hi[Math.floor(Math.random() * hi.length)];
   var link = [
 
