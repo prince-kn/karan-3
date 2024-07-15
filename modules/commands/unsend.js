@@ -16,7 +16,7 @@ module.exports.languages = {
 		"missingReply": "Hãy reply tin nhắn cần gỡ."
 	},
 	"en": {
-		"returnCant": "aru ko message ksre maile Unsend garam😑🥺.",
+		"returnCant": "mere jo msg dlt karna h uspe swip karke dlt karo .",
 		"missingReply": "💝Mero Jun Msg lai Unsend garbe ho tesma  Reply garera lekha💕  ."
 	}
 }
