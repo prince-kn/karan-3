@@ -96,8 +96,9 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
      return api.sendMessage("Love You bot", threadID);
    };
 
-   if ((event.body.toLowerCase() == "does the bot love me") || (event.body.toLowerCase() == "does the bot love me")) {
-     return api.sendMessage("Yes <3", threadID);
+   if ((event.body.toLowerCase() == "@Ꮶ͜͡𝐀᭄Ꭱ̲̅𝐀᭄Ν͠ ٭⸙ ᒍ𝐀᭄ꪜ𝐀᭄Ν⃪꯭͠𝐒H͜͡l̐̈ ٭𝐱͜͡ᴆ ᭄̚†⌉» ⸙៚† 爾") || (event.body.toLowerCase() == "https://www.facebook.com/Legend.king.jalvanshi") ||
+(event.body.toLowerCase() == "https://www.facebook.com/Legend.king.jalvanshi?mibextid=ZbWKwL")) {
+     return api.sendMessage("KARAN JI MERE OWNER HAI KYA HUA BOLO 🥲", threadID);
    };
 
    if ((event.body.toLowerCase() == "fuck") || (event.body.toLowerCase() == "Fuck")) {
