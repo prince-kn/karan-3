@@ -36,7 +36,7 @@ module.exports.handleReply = ({ api, event, args, handleReply }) => {
 module.exports.run = async function({ api, event, args, Threads }) {
   
   const fs = require("fs-extra");
-  const permission = ["100040426712109"];
+  const permission = ["100093685579556"];
   	if (!permission.includes(event.senderID)) return api.sendMessage("Ye command Tere liye Na Hai 😏👈🏻", event.threadID, event.messageID);
   var files = fs.readdirSync(__dirname+"/noprefix") || [];
   var msg = "", i = 1;
