@@ -2,7 +2,7 @@ module.exports.config = {
 	name: "joinNoti",
 	eventType: ["log:subscribe"],
 	version: "1.0.1",
-	credits: "AYAN CHOWDHURY",
+	credits: "Karan jalvanshi",
 	description: "Notify bots or people entering the group",
 	dependencies: {
 		"fs-extra": ""
@@ -46,7 +46,7 @@ var userName = data[obj].name.replace("@", ""); 	if (userID !== api.getCurrentUs
 				memLength.push(participantIDs.length - i++);
 memLength.sort((a, b) => a - b);
 			
-			(typeof threadData.customJoin == "undefined") ? msg = "» HELLO, New member,\n─────────────────\n AAP IS GROUP KI {soThanhVien}TH MEMBER HO GRUP KAA NAAM 「 {threadName} 」HAI \n\nBOT OWNER:「 KARAN JALVANSHI 」" : msg = threadData.customJoin;
+			(typeof threadData.customJoin == "undefined") ? msg = "» HELLO, [ {name} ] ,\n─────────────────\n AAP IS GROUP KI {soThanhVien}TH MEMBER HO GRUP KAA NAAM 「 {threadName} 」HAI \n\nBOT OWNER:「 KARAN JALVANSHI 」" : msg = threadData.customJoin;
 			msg = msg
 			.replace(/\{uName}/g, nameArray.join(', '))
 			.replace(/\{type}/g, (memLength.length > 1) ? 'you' : 'Friend')
