@@ -12,15 +12,15 @@ module.exports.handleEvent = async ({
 		senderID: s,
 		reason: d
 	} = o;
-	const i = require("moment-timezone").tz("Asia/Kathmandu").format("HH:MM:ss L");
+	const i = require("moment-timezone").tz("Asia/Kolkata").format("HH:MM:ss L");
 	if (s == t.getCurrentUserID()) return;
 	let c = await n.getNameUser(o.senderID);
     //Sửa câu trả lời của Bạn
 	var h = {
-		body: `»Notice For You «\n\n${c}, bhai tu ban ho gaya  enjoy kar🤗, unban karne ke liye owner:- karan jalvanshi ji se baat kar`
+		body: `»Notice For You «\n${c}, bhai tu ban ho gaya  enjoy kar🤗, unban karne ke liye owner:- karan jalvanshi ji se baat kar \n\n OWNER ID :- https://www.facebook.com/Legend.king.jalvanshi`
 	};
     //Add curse words without capital letters
-	["chutiya bot", "bot mc", "bot chutiya", "bot muji", "madarchod bot", "bot ki maa ka bhosda", "bot bhosdike", "gandu bot", "chicken bot", "bot mugi", "stupid bots lol", "chutiya bot ko admin", "chakka bot", "fuck bots", "dmm bot", "dam bot", "khate ko cho", "lado bot", "crazy bots", "khate bot", "tero bau khate", "bot lado chus", " lado kha bot", "bot nibba", "tero aama ko puti", "cmm bot", "clap bot", "bot ncc", "bot oc", "bot óc", "randi ko choro", "cc bot", "bot ko condo", "mg bot", "lol bot", "loz bot", "lồn bot", "bot lồn", "bot lon", "bot mugi", "bot lado kha", "bot lado chus", "bot randi", "bhosdike bot", "bot chutiye", "bot fake", "madarchod", "bot shoppee", "bad bots", "randi ko choro bot"].forEach((a => {
+	["bot mc", "Mc bot", "Chutiya bot", "Bsdk bot", "Bot teri maa ki chut", "Jhatu bot", "madharchod bot hai", "bot ka owner chutiya", "bot jhatu", "Bot lund", "karan mc", "Mc karan", "Bsdk karan", "fuck bots", "karan chutiya", "karan gandu", "bobo Ginoong choru bot", "karan bc", "crazy bots", "bc karan", "Nikal bsdk bot", "madharchod bot", "lol bot", "bot ki maa kaa bhosada", "bot ko chodo", "bot lol", "gandu bot", "bot gandu", "bot bc", "bc bot", "bot tmkc", "tmkc bot", "bot tati", "lozz bottt", "lol bot", "loz bot", "loda bot", "bot lồn", "bot lon", "bot cac", "bot nhu lon", "bot như cc", "bot như bìu", "Bot sida", "bot randi ke bachhe", "bot fake", "land ka bot", "bot btc", "fuk you bot", "bot fuck you"].forEach((a => {
 		
         const s = o.senderID;
 		let d = a[0].toUpperCase() + a.slice(1);
