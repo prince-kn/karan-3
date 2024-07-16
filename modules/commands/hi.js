@@ -2,7 +2,7 @@ module.exports.config = {
   name: "hi",
   version: "1.0.0",
   hasPermssion: 0,
-  credits: "Sam",
+  credits: "Karan jalvanshi",
   description: "hi gửi sticker",
   commandCategory: "QTV BOX",
   usages: "[text]",
@@ -22,8 +22,8 @@ module.exports.handleEvent = async ({ event, api, Users }) => {
     "hii",
     "hye",
     "hii",
-    "helo po",
-    "hê nhô"
+    "Hye",
+    "HYE"
   ];
   let thread = global.data.threadData.get(event.threadID) || {};
   if (typeof thread["hi"] == "undefined", thread["hi"] == false) return
@@ -46,7 +46,7 @@ module.exports.handleEvent = async ({ event, api, Users }) => {
     ];
     let sticker = data[Math.floor(Math.random() * data.length)];
     let moment = require("moment-timezone");
-    let hours = moment.tz('Asia/Manila').format('HHmm');
+    let hours = moment.tz('Asia/kolkata').format('HHmm');
     let session = (
     hours > 0001 && hours <= 400 ? "bright morning" : 
     hours > 401 && hours <= 700 ? "morning" :
